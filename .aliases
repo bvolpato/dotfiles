@@ -11,6 +11,12 @@ alias du='du -csh'
 alias df='df -Th'
 alias ccat='pygmentize -g'
 alias top="htop"
+alias g='git'
+
+alias pg='vimpager'
+
+#pubkey
+alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 
 
 # List all files colorized in long format

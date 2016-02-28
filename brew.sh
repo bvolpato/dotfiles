@@ -18,7 +18,7 @@ brew cask install vlc
 # tools
 brew install node
 brew install git
-brew install wget
+brew install wget --with-iri
 brew install tree
 
 # GNU core utilities (those that come with OS X are outdated)
@@ -50,6 +50,38 @@ brew install terminal-notifier
 
 #pipe viewer
 brew install pv
+
+
+#conversor
+brew install pandoc
+
+#history
+brew install hh
+
+#network
+brew install nmap
+
+#terminal tool
+brew install tmux # ctrl+b default 
+
+# Core casks
+#brew cask install --appdir="/Applications" alfred
+#brew cask install --appdir="~/Applications" iterm2
+#brew cask install --appdir="~/Applications" java
+#brew cask install --appdir="~/Applications" xquartz
+#brew cask install --appdir="/Applications" atom
+#brew cask install --appdir="/Applications" virtualbox
+#brew cask install --appdir="/Applications" vagrant
+#brew cask install --appdir="/Applications" macdown
+#brew cask install --appdir="/Applications" mactex
+
+# Install developer friendly quick look plugins; see https://github.com/sindresorhus/quick-look-plugins
+#brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
+
+#Dark Mode
+#brew install dark-mode
+
+
 
 
 # mtr - ping & traceroute. best.

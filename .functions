@@ -362,3 +362,9 @@ function extract() {
 		echo "'$1' is not a valid file"
 	fi
 }
+
+
+# Copy w/ progress
+function cp_p () {
+  rsync -WavP --human-readable --progress $1 $2
+}
