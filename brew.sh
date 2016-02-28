@@ -11,6 +11,8 @@ brew tap caskroom/versions
 
 
 # useful
+
+#window resizing
 brew cask install spectacle
 brew cask install vlc
 
@@ -39,6 +41,7 @@ brew install bash-completion2
 brew install homebrew/completions/brew-cask-completion
 
 
+#install better versions of tools
 brew install vim --override-system-vi
 brew install homebrew/dupes/grep
 brew install homebrew/dupes/screen
@@ -47,6 +50,11 @@ brew install homebrew/dupes/screen
 brew install terminal-notifier
 
 
+#prevent mac from sleeping
+brew install caffeine
+
+#youtube downloader
+brew install youtube-dl
 
 #pipe viewer
 brew install pv
@@ -62,7 +70,7 @@ brew install hh
 brew install nmap
 
 #terminal tool
-brew install tmux # ctrl+b default 
+brew install tmux # ctrl+b default
 
 # Core casks
 #brew cask install --appdir="/Applications" alfred
