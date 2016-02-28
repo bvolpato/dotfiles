@@ -6,6 +6,13 @@ else # OS X `ls`
 fi
 
 
+#colorized commands
+alias du='du -csh'
+alias df='df -Th'
+alias ccat='pygmentize -g'
+alias top="htop"
+
+
 # List all files colorized in long format
 alias l="ls -lF ${colorflag}"
 
@@ -132,4 +139,3 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
-

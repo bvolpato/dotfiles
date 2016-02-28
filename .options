@@ -4,4 +4,13 @@ shopt -s histappend;
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell;
 
+# Case-insensitive globbing (used in pathname expansion).
+shopt -s nocaseglob
 
+# Check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# After each command, append to the history file and reread it.
+# Source: http://unix.stackexchange.com/a/1292
+# export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"

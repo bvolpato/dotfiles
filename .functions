@@ -35,6 +35,12 @@ function title {
     fi
 }
 
+# get a random word from the system dictionary.
+function randomWord() {
+  resource=/usr/share/dict/words;
+  lineNum=$(cat $resource | wc -l);
+  cat -n $resource | grep -w $(jot -r 1 1 $lineNum) | cut -f2;
+}
 
 #get a random line of a file
 function randomLine() {
@@ -47,7 +53,7 @@ function mkd() {
 	mkdir -p "$@" && cd "$_";
 }
 
-# Search and Replace based on the params 
+# Search and Replace based on the params
 function srall {
     find . -type f -exec sed -i '' s/$1/$2/g {} +
 }
@@ -138,7 +144,7 @@ function gitio() {
 		echo "Usage: \`gitio slug url\`";
 		return 1;
 	fi;
-	curl -i http://git.io/ -F "url=${2}" -F "code=${1}";
+	curl -i https://git.io/ -F "url=${2}" -F "code=${1}";
 }
 
 # Start an HTTP server from a directory, optionally specifying the port
@@ -177,6 +183,7 @@ function json() {
 		python -mjson.tool | pygmentize -l javascript;
 	fi;
 }
+
 
 # Run `dig` and display the most useful info
 function digga() {
