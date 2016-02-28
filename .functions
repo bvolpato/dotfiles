@@ -47,6 +47,27 @@ function mkd() {
 	mkdir -p "$@" && cd "$_";
 }
 
+# Search and Replace based on the params 
+function srall {
+    find . -type f -exec sed -i '' s/$1/$2/g {} +
+}
+
+# Search and Replace based on params - with extension
+function srext {
+    find . -type f -name '*.$1' -exec sed -i '' s/$2/$3/g {} +
+}
+
+# Filter Specific column
+function col {
+  awk -v col=$1 '{print $col}'
+}
+
+# Skip X words in line
+function skip {
+    n=$(($1 + 1))
+    cut -d' ' -f$n-
+}
+
 # Change working directory to the top-most Finder window location
 function cdf() { # short for `cdfinder`
 	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
