@@ -54,7 +54,8 @@ brew install hydra
 brew install john
 
 
-
+#autojump - jump to directory (j) or child dir (jc)
+brew install autojump
 
 ################### general
 
