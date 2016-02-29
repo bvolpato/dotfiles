@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# get the command line tools!
+xcode-select --install
+
+# you have to do this at some point
+sudo xcodebuild -license accept
+
+# install brew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 brew update
