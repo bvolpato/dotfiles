@@ -7,7 +7,9 @@ xcode-select --install
 sudo xcodebuild -license accept
 
 # install brew
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+if ! hash brew 2> /dev/null; then
+	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
 
 brew update
 brew upgrade
@@ -40,6 +42,26 @@ brew install findutils
 brew install gnu-sed --default-names
 
 
+################## h4x
+brew install binutils
+#cipher detection
+brew install cifer
+#zip cracker
+brew install fcrackzip
+#logon crack
+brew install hydra
+#pwd crack
+brew install john
+
+
+
+
+################### general
+
+#read exif from files
+brew install exiftool
+
+################# code
 # regular bash-completion package is held back to an older release, so we get latest from versions.
 #   github.com/Homebrew/homebrew/blob/master/Library/Formula/bash-completion.rb#L3-L4
 brew tap homebrew/versions
@@ -80,15 +102,19 @@ brew install nmap
 brew install tmux # ctrl+b default
 
 # Core casks
-#brew cask install --appdir="/Applications" alfred
-#brew cask install --appdir="~/Applications" iterm2
-#brew cask install --appdir="~/Applications" java
-#brew cask install --appdir="~/Applications" xquartz
-#brew cask install --appdir="/Applications" atom
-#brew cask install --appdir="/Applications" virtualbox
-#brew cask install --appdir="/Applications" vagrant
-#brew cask install --appdir="/Applications" macdown
-#brew cask install --appdir="/Applications" mactex
+brew cask install --appdir="/Applications" alfred
+brew cask install --appdir="/Applications" iterm2
+brew cask install --appdir="/Applications" java
+brew cask install --appdir="/Applications" xquartz
+brew cask install --appdir="/Applications" atom
+brew cask install --appdir="/Applications" virtualbox
+brew cask install --appdir="/Applications" vagrant
+brew cask install --appdir="/Applications" macdown
+brew cask install --appdir="/Applications" mactex
+
+# File Archiver Management
+brew cask install keka
+
 
 # Install developer friendly quick look plugins; see https://github.com/sindresorhus/quick-look-plugins
 #brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package

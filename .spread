@@ -1,0 +1,12 @@
+#!/bin/bash
+# Load all dotfiles
+
+source ~/githubworkspace/dotfiles/.options
+source ~/githubworkspace/dotfiles/.complete
+source ~/githubworkspace/dotfiles/.exports
+source ~/githubworkspace/dotfiles/.functions
+source ~/githubworkspace/dotfiles/.aliases
+source ~/githubworkspace/dotfiles/.cheatsheets
+source ~/githubworkspace/dotfiles/.priv8functions
+
+echo '~~got r00t? ;-)'
