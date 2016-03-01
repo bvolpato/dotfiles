@@ -484,3 +484,28 @@ else:
 	print json.dumps(result, indent=4);
 	';
 }
+
+
+
+#Build Jenkins and wait until finished
+function buildJenkinsAndWait() {
+
+	echo "`date` - Building $1...";
+
+	curl -X POST "$1/buildWithParameters"
+	sleep 10
+
+	url="$1/lastBuild/api/json"
+	lastBuildResult=$(curl -s "$url" | jsontag result)
+	while [ "$lastBuildResult" != "SUCCESS" ];
+	do
+	echo "`date` - Waiting for $1 to complete (result: $lastBuildResult)";
+	sleep 10
+
+	lastBuildResult=$(curl -s "$url" | jsontag result)
+
+	done
+
+	echo "`date` - Finished $1!";
+
+}
