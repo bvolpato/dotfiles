@@ -206,6 +206,7 @@ function gz() {
 
 # Syntax-highlight JSON strings or files
 # Usage: `json '{"foo":42}'` or `echo '{"foo":42}' | json`
+#python -c "import json,sys; print json.dumps(json.load(sys.stdin),indent=4,separators=(',',': '))"
 function json() {
 	if [ -t 0 ]; then # argument
 		python -mjson.tool <<< "$*" | pygmentize -l javascript;
@@ -214,6 +215,10 @@ function json() {
 	fi;
 }
 
+# Trim spaces
+function trim () {
+	while read -r line; do echo "$line"; done;
+}
 
 # Run `dig` and display the most useful info
 function digga() {
