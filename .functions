@@ -454,3 +454,33 @@ function top10 () {
 function cp_p () {
   rsync -WavP --human-readable --progress $1 $2
 }
+
+
+
+# Read JSON Tag
+function jsontag() {
+	python -c $'
+import json,sys;
+obj=json.load(sys.stdin);
+result=obj["'"$1"'"];
+
+if isinstance(result, unicode):
+	print result;
+else:
+	print json.dumps(result, indent=4);
+	';
+}
+
+# Read JSON Index
+function jsonindex() {
+	python -c $'
+import json,sys;
+obj=json.load(sys.stdin);
+result=obj['"$1"'];
+
+if isinstance(result, unicode):
+	print result;
+else:
+	print json.dumps(result, indent=4);
+	';
+}
