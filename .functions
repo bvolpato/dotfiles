@@ -38,6 +38,8 @@ function reload-chrome() {
 	'
 }
 
+
+
 # Word frequency
 function wordFreq() {
 	ruby -F'[^a-zA-Z]+' -ane '
@@ -214,6 +216,8 @@ function json() {
 		python -mjson.tool | pygmentize -l javascript;
 	fi;
 }
+
+
 
 # Trim spaces
 function trim () {
@@ -485,27 +489,65 @@ else:
 	';
 }
 
+function paramtest() {
+echo "First: $1";
+echo "Second: ${*:2}";
 
+}
+
+#Get my timestamp
+function mytimestamp() {
+	date +"%Y-%m-%d %T"
+}
+
+
+#Requote
+#https://stackoverflow.com/questions/3260920/preserving-quotes-in-bash-function-parameters
+function requote() {
+	local res=""
+	for x in "${@}" ; do
+		# try to figure out if quoting was required for the $x:
+		grep -q "[[:space:]]" <<< "$x" && res="${res} '${x}'" || res="${res} ${x}"
+	done
+	# remove first space and print:
+	sed -e 's/^ //' <<< "${res}"
+}
 
 #Build Jenkins and wait until finished
-function buildJenkinsAndWait() {
+function jenkinsbuildandwait() {
 
-	echo "`date` - Building $1...";
+	echo "`mytimestamp` - Building $1";
 
-	curl -X POST "$1/buildWithParameters"
+
+	if [ $# -eq 2 ]; then
+		curl -v -X POST "$1/build?delay=0sec" -H 'Content-Type: application/x-www-form-urlencoded' --data "$2"
+	else
+		curl -v -X POST "$1/buildWithParameters"
+	fi
+
+
 	sleep 10
 
 	url="$1/lastBuild/api/json"
 	lastBuildResult=$(curl -s "$url" | jsontag result)
 	while [ "$lastBuildResult" != "SUCCESS" ];
 	do
-	echo "`date` - Waiting for $1 to complete (result: $lastBuildResult)";
+	echo "`mytimestamp` - Waiting for $1 to complete (result: $lastBuildResult)";
 	sleep 10
 
 	lastBuildResult=$(curl -s "$url" | jsontag result)
 
 	done
 
-	echo "`date` - Finished $1!";
+	echo "`mytimestamp` - Finished $1!";
 
+}
+
+
+
+#Random say voice
+function sayrandomvoice() {
+	declare -a expressions=('Agnes' 'Kathy' 'Princess' 'Vicki' 'Victoria' 'Alex' 'Bruce' 'Fred' 'Junior' 'Ralph' 'Albert' 'Bad News' 'Bahh' 'Bells' 'Boing' 'Bubbles' 'Cellos' 'Deranged' 'Good News' 'Hysterical' 'Pipe Organ' 'Trinoids' 'Whisper' 'Zarvox');
+	index=$( jot -r 1  0 $((${#expressions[@]} - 1)) )
+	say -v "${expressions[index]}" $*
 }
