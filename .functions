@@ -3,7 +3,7 @@
 # Dotfile Backup
 function dotbkp() {
 
-	rsync -ruv ~/githubworkspace/dotfiles/ ~/Dropbox/dotfiles/
+	rsync -ruv --exclude '.git' ~/githubworkspace/dotfiles/ ~/Dropbox/dotfiles/
 	rm -rf ~/Dropbox/dotfiles/.git
 
 }
