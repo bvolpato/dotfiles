@@ -5,6 +5,19 @@
   remotes = remote -v
   # Pretty log output
   hist = log --graph --pretty=format:'%Cred%h%Creset %s%C(yellow)%d%Creset %Cgreen(%cr)%Creset [%an]' --abbrev-commit --date=relative
+  co = checkout
+  br = branch
+  st = status
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(green)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset' --abbrev-commit --date=relative
+  ll = !git log --stat
+  lgp = !git lg -p
+  lll = !git log --stat -n 1
+  me = !git lg --author=brunocvcunha
+  wk = !git me --since='+7 days'
+  sprit = !git me --since='+15 days'
+  month = !git me --since='+1 Month'
+  alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\ => \\2/' | sort
+  export-patch = !git format-patch --stdout $1 > ~/`git bn`.diff
 
 [color]
   # Use colors in Git commands that are capable of colored output when outputting to the terminal
@@ -35,9 +48,9 @@
 	excludesfile = ~/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = ~/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [push]
-	default = matching
+	default = current
