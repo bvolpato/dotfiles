@@ -156,10 +156,9 @@ defaults write com.apple.dock launchanim -bool false
 defaults write com.apple.dock show-process-indicators -bool true
 
 # Show more stuff launchpad
-defaults write com.apple.dock springboard-rows -int 8
-defaults write com.apple.dock springboard-columns -int 8
+defaults write com.apple.dock springboard-rows -int 7
+defaults write com.apple.dock springboard-columns -int 7
 defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock
-
 
 
 
