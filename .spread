@@ -7,6 +7,7 @@ source ~/githubworkspace/dotfiles/.exports
 source ~/githubworkspace/dotfiles/.functions
 source ~/githubworkspace/dotfiles/.aliases
 source ~/githubworkspace/dotfiles/.cheatsheets
+source ~/githubworkspace/dotfiles/.totvsfunctions
 source ~/githubworkspace/dotfiles/.priv8functions
 
 echo '~~got r00t? ;-)'

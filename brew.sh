@@ -14,6 +14,16 @@ fi
 brew update
 brew upgrade
 
+#use new bash
+brew install bash
+
+# Add the new shell to the list of allowed shells
+sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells'
+# Change to the new shell
+chsh -s /usr/local/bin/bash
+
+
+
 brew tap caskroom/cask
 brew install brew-cask
 brew tap caskroom/versions
@@ -26,11 +36,14 @@ brew cask install spectacle
 brew cask install vlc
 
 
+
 # tools
 brew install node
 brew install git
 brew install wget --with-iri
 brew install tree
+brew install maven
+
 
 # GNU core utilities (those that come with OS X are outdated)
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.

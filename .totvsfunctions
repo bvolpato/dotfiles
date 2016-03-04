@@ -1,0 +1,30 @@
+
+### Install Dependencies
+function totvsdependencies() {
+
+  sudo mkdir /opt/totvs
+  sudo chmod -R 777 /opt/totvs
+
+  ## Couchbase 4
+  (
+  cd /opt/totvs
+  wget http://packages.couchbase.com/releases/4.1.0/couchbase-server-enterprise_4.1.0-macos_x86_64.zip
+  unzip couchbase-server-enterprise_4.1.0-macos_x86_64.zip
+
+  sudo ln -s "/opt/totvs/couchbase-server-enterprise_4/Couchbase Server.app" /Applications
+  )
+
+
+
+  ## Elasticsearch 2.1.1
+  (
+    cd /opt/totvs
+    wget https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/zip/elasticsearch/2.1.1/elasticsearch-2.1.1.zip
+    unzip elasticsearch-2.1.1.zip
+
+    elasticsearch-2.1.1/bin/plugin install mobz/elasticsearch-head
+
+    ln -s /opt/totvs/elasticsearch-2.1.1/bin/elasticsearch /usr/local/bin
+
+  )
+}
