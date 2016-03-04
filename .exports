@@ -18,6 +18,7 @@ fi
 
 #tab title with the current folder name
 export PROMPT_COMMAND='echo -ne "\033]0; ${PWD##*/}\007"'
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} history -a"
 
 
 export HISTSIZE='32768';

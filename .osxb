@@ -1,0 +1,42 @@
+#!/bin/bash
+
+
+## Revert a few stuff
+
+
+# Ask for the administrator password upfront
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until `.osx` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+
+
+#Revert prints dir
+defaults write com.apple.screencapture location -string "${HOME}/Desktop"
+
+
+defaults write com.apple.dock tilesize -int 36
+
+# Show more stuff launchpad
+defaults write com.apple.dock springboard-rows -int 6
+defaults write com.apple.dock springboard-columns -int 6
+defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock
+
+
+# Prevent Photos from opening automatically when devices are plugged in
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool false
+
+
+
+#################### Activate
+echo "Killing affected apps..."
+
+#Kill affected apps
+for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
+  "Dock" "Finder" "Google Chrome" "Google Chrome Canary" "Mail" "Messages" \
+  "Opera" "Photos" "Safari" "SizeUp" "Spectacle" "SystemUIServer" "Terminal" \
+  "Transmission" "Tweetbot" "Twitter" "iCal"; do
+  killall "${app}" &> /dev/null
+done
+echo "Done. Note that some of these changes require a logout/restart to take effect."
