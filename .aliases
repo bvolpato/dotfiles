@@ -163,5 +163,9 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 alias reload="exec $SHELL -l"
 
 
+#Wifi Aliases
+alias wifion="networksetup -setairportpower en0 on"
+alias wifioff="networksetup -setairportpower en0 off"
+
 # Maven clean install
 alias mvnc='mvn clean install -Dmaven.test.skip'
