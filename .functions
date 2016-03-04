@@ -553,6 +553,17 @@ function sayrandomvoice() {
 }
 
 
+## Echo Jump Dir
+function jecho() {
+
+  echo "$(j $* | nocolor)";
+
+}
+
+## No colors. :)
+function nocolor() {
+  sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g" | sed "s/\x0f//g"
+}
 
 ##kill processes with name
 function grepkill() {
