@@ -136,7 +136,8 @@ brew cask install keka
 #Dark Mode
 #brew install dark-mode
 
-
+#Git-Hub
+brew install hub
 
 
 # mtr - ping & traceroute. best.
