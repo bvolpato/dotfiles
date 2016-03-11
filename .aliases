@@ -20,6 +20,8 @@ alias pg='vimpager'
 #pubkey
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 
+#pubkey generate
+alias pubkey="ssh-keygen -t rsa"
 
 # List all files colorized in long format
 alias l="ls -lF ${colorflag}"

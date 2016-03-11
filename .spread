@@ -1,13 +1,15 @@
 #!/bin/bash
 # Load all dotfiles
 
-source ~/githubworkspace/dotfiles/.options
-source ~/githubworkspace/dotfiles/.complete
-source ~/githubworkspace/dotfiles/.exports
-source ~/githubworkspace/dotfiles/.functions
-source ~/githubworkspace/dotfiles/.aliases
-source ~/githubworkspace/dotfiles/.cheatsheets
-source ~/githubworkspace/dotfiles/.totvsfunctions
-source ~/githubworkspace/dotfiles/.priv8functions
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-echo '~~got r00t? ;-)'
+source "$DIR/.options"
+source "$DIR/.complete"
+source "$DIR/.exports"
+source "$DIR/.functions"
+source "$DIR/.aliases"
+source "$DIR/.cheatsheets"
+source "$DIR/.totvsfunctions"
+source "$DIR/.priv8functions"
+
+echo '~~ got r00t? ;-)'
