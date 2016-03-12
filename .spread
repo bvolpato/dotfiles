@@ -3,9 +3,9 @@
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+source "$DIR/.exports"
 source "$DIR/.options"
 source "$DIR/.complete"
-source "$DIR/.exports"
 source "$DIR/.functions"
 source "$DIR/.aliases"
 source "$DIR/.cheatsheets"
