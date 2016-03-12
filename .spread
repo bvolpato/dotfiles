@@ -5,11 +5,18 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 source "$DIR/.exports"
 source "$DIR/.options"
-source "$DIR/.complete"
-source "$DIR/.functions"
 source "$DIR/.aliases"
 source "$DIR/.cheatsheets"
-source "$DIR/.totvsfunctions"
-source "$DIR/.priv8functions"
 
-echo '~~ got r00t? ;-)'
+if hash brew 2> /dev/null; then
+  source "$DIR/.complete"
+  source "$DIR/.functions"
+  source "$DIR/.totvsfunctions"
+  source "$DIR/.priv8functions"
+
+  echo '~~ got r00t? ;-)'
+
+else
+
+  echo "Brew not installed. Ignoring a few sources."
+fi

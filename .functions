@@ -3,9 +3,14 @@
 # Dotfile Backup
 function dotbkp() {
 
+  if [ ! -d "~/Dropbox/dotfiles/" ]; then
+    echo "Not allowed in this machine."
+    return
+  fi
+
   rsync -ruv --exclude '.git' ~/githubworkspace/dotfiles/ ~/Dropbox/dotfiles/
   rm -rf ~/Dropbox/dotfiles/.git
-
+  scp ~/githubworkspace/dotfiles/.priv8functions bruno@california:~/githubworkspace/dotfiles
 }
 
 # Simple calculator
