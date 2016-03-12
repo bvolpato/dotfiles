@@ -14,7 +14,9 @@ if [[ $os_type == "Darwin" ]]; then
   export TERM="xterm-color"
 fi
 
-
+if [[ $(hostname) == "California" ]]; then
+	export PATH=~/.linuxbrew/bin:~/.linuxbrew/sbin:$PATH
+fi
 
 #tab title with the current folder name
 export PROMPT_COMMAND='echo -ne "\033]0; ${PWD##*/}\007"'
