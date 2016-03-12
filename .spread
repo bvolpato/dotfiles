@@ -1,6 +1,10 @@
 #!/bin/bash
 # Load all dotfiles
 
+# If not running interactively, don't do anything
+[[ $- == *i* ]] || return
+
+
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 source "$DIR/.exports"
