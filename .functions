@@ -84,10 +84,14 @@ function mkd() {
   mkdir -p "$@" && cd "$_";
 }
 
-
 # Pub key send
 function pubkeysend() {
   ssh-copy-id -i ~/.ssh/id_rsa.pub $1
+}
+
+# SSH + CD
+function sshcd() {
+  ssh -t $1 "cd $2; bash"
 }
 
 # Search and Replace based on the params
@@ -575,6 +579,19 @@ function grepkill() {
     ps aux | grep -ie "$2" | grep -v "grep" | awk '{print $2}' | xargs kill $1
 }
 
+
+
+##sort by timestamp alphabetically
+function sortbytimestamp() {
+
+  for fi in `ls -1 | grep -v ".txt"`
+  do
+    echo "Touch $fi..."
+    touch $fi
+    sleep 0.2
+  done
+
+}
 
 function __git_dirty {
   git diff --quiet HEAD &>/dev/null

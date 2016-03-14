@@ -17,6 +17,10 @@ alias g='git'
 
 alias pg='vimpager'
 
+
+#git pristine clear
+alias gpristine='git reset --hard && git clean -dfx'
+
 #pubkey
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 
