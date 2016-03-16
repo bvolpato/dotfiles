@@ -227,6 +227,12 @@ function json() {
 }
 
 
+# xml format
+function xmlformat() {
+  xmllint --format -
+}
+
+
 
 # Trim spaces
 function trim () {
