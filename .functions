@@ -1,17 +1,21 @@
 #!/bin/bash
 
-# Dotfile Backup
-function dotbkp() {
 
-  if [ ! -d ~/Dropbox/dotfiles ]; then
-    echo "Not allowed in this machine."
-    return
-  fi
-
-  rsync -ruv --exclude '.git' ~/githubworkspace/dotfiles/ ~/Dropbox/dotfiles/
-  rm -rf ~/Dropbox/dotfiles/.git
-  scp ~/githubworkspace/dotfiles/.priv8functions bruno@california:~/githubworkspace/dotfiles/
+## Progress
+function echo_progress() {
+  printf "`mytimestamp` - $*\n"
 }
+
+## Success
+function echo_success() {
+  printf "$GREEN`mytimestamp` - $*\n"
+}
+
+## Failure
+function echo_failure() {
+  printf "$RED`mytimestamp` - $*\n"
+}
+
 
 # Simple calculator
 function calc() {
@@ -596,13 +600,31 @@ function sortbytimestamp() {
     touch $fi
     sleep 0.2
   done
-
 }
+
+
+# Dotfile Backup
+function dotbkp() {
+  if [ ! -d ~/Dropbox/dotfiles ]; then
+    echo "Not allowed in this machine."
+    return
+  fi
+
+  rsync -ruv --exclude '.git' ~/githubworkspace/dotfiles/ ~/Dropbox/dotfiles/
+  rm -rf ~/Dropbox/dotfiles/.git
+  scp ~/githubworkspace/dotfiles/.priv8functions bruno@california:~/githubworkspace/dotfiles/
+}
+
 
 function __git_dirty {
   git diff --quiet HEAD &>/dev/null
   [ $? == 1 ] && echo "!"
 }
+
+function mybranch {
+  __git_ps1 "%s"
+}
+
 function __git_branch {
   __git_ps1 "[%s]"
 }
