@@ -67,6 +67,10 @@ brew install hydra
 brew install john
 
 
+# file system watch
+# fswatch -o ~/path/to/watch | xargs -n1 ~/script/to/run/when/files/change.sh
+brew install fswatch
+
 #autojump - jump to directory (j) or child dir (jc)
 brew install autojump
 

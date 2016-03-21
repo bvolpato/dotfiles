@@ -84,3 +84,10 @@ BWHITE='\033[1;37m'       # White
  UC=$W                 # user's color
 [ $UID -eq "0" ] && UC=$R   # root's color
 PS1="$C\u$W@$B\h$C[$W\w$C]$G\$(__git_branch)$R\$(__git_dirty)$W+$NONE "
+
+
+
+function whitebg() {
+  PS1="$K\u$K@$B\h$C[$K\w$C]$G\$(__git_branch)$R\$(__git_dirty)$K+$NONE "
+  UC=$K
+}
