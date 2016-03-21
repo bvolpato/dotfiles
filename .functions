@@ -3,17 +3,17 @@
 
 ## Progress
 function echo_progress() {
-  printf "`mytimestamp` - $*\n"
+  echo -e "`mytimestamp` - $*"
 }
 
 ## Success
 function echo_success() {
-  printf "$GREEN`mytimestamp` - $*\n"
+  echo -e "$GREEN`mytimestamp` - $*"
 }
 
 ## Failure
 function echo_failure() {
-  printf "$RED`mytimestamp` - $*\n"
+  echo -e "$RED`mytimestamp` - $*"
 }
 
 
@@ -193,7 +193,7 @@ function gitio() {
 }
 
 # Start an HTTP server from a directory, optionally specifying the port
-function server() {
+function pythonserver() {
   local port="${1:-8000}";
   sleep 1 && open "http://localhost:${port}/" &
   # Set the default Content-Type to `text/plain` instead of `application/octet-stream`
@@ -205,7 +205,7 @@ function server() {
 # (Requires PHP 5.4.0+.)
 function phpserver() {
   local port="${1:-4000}";
-  local ip=$(ipconfig getifaddr en0);
+  local ip=${2:-$(ipconfig getifaddr en0)};
   sleep 1 && open "http://${ip}:${port}/" &
   php -S "${ip}:${port}";
 }
@@ -602,6 +602,17 @@ function sortbytimestamp() {
   done
 }
 
+
+# ScreenShot
+function ss() {
+  echo "[ss - press space to select rectangle]"
+  if [ "$1" != "" ]; then
+    screencapture -iW $*
+  else
+    #clipboard
+    screencapture -ciW
+  fi
+}
 
 # Dotfile Backup
 function dotbkp() {

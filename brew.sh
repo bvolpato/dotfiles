@@ -126,8 +126,15 @@ brew cask install --appdir="/Applications" vagrant
 brew cask install --appdir="/Applications" macdown
 brew cask install --appdir="/Applications" mactex
 
+
+# port redirection
+brew install ngrok
+
 # File Archiver Management
 brew cask install keka
+
+# Keybase
+brew install keybase
 
 
 # Install developer friendly quick look plugins; see https://github.com/sindresorhus/quick-look-plugins
