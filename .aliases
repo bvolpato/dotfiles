@@ -102,6 +102,7 @@ unset jscbin;
 
 # Replace new lines for space
 alias lns="tr '\n' ' '"
+alias list="tr '\n' ' '"
 
 # Trim new lines and copy to clipboard
 alias c="tr -d '\n' | pbcopy"

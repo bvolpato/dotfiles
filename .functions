@@ -508,6 +508,23 @@ else:
   ';
 }
 
+
+# Read JSON Val in Array
+function jsonarrayval() {
+  python -c $'
+import json,sys;
+obj=json.load(sys.stdin);
+
+for inst in (item for item in obj):
+  if "'$1'" in inst:
+    result = inst["'$1'"]
+    if isinstance(result, unicode):
+      print result;
+    else:
+      print json.dumps(result, indent=4);
+  ';
+}
+
 function paramtest() {
 echo "First: $1";
 echo "Second: ${*:2}";
