@@ -151,6 +151,10 @@ brew install keybase
 brew install hub
 
 
+
+#translate - $ trans "Oi, Mundo", $ trans -brief pt:en "Oi Mundo"
+brew install translate-shell
+
 # mtr - ping & traceroute. best.
 brew install mtr
 
