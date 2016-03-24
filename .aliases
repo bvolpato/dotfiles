@@ -182,5 +182,9 @@ alias eshead="open 'http://localhost:9200/_plugin/head'"
 alias wifion="networksetup -setairportpower en0 on"
 alias wifioff="networksetup -setairportpower en0 off"
 
+
+# Maven parallel build by default
+alias mvn='mvn -T4'
+
 # Maven clean install
 alias mvnc='mvn clean install -Dmaven.test.skip'

@@ -155,6 +155,11 @@ brew install hub
 #translate - $ trans "Oi, Mundo", $ trans -brief pt:en "Oi Mundo"
 brew install translate-shell
 
+# maven-color, maven-notifier and maven-profiler
+brew tap jcgay/jcgay
+brew install maven-deluxe
+brew link --overwrite maven-deluxe
+
 # mtr - ping & traceroute. best.
 brew install mtr
 

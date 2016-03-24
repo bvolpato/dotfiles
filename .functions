@@ -166,6 +166,12 @@ function fs() {
   fi;
 }
 
+
+## find which pid is listening on port
+function useport {
+  lsof -n -i4TCP:"$@" | grep LISTEN
+}
+
 # Use Git’s colored diff when available
 hash git &>/dev/null;
 if [ $? -eq 0 ]; then
