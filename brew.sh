@@ -43,7 +43,7 @@ brew install git
 brew install wget --with-iri
 brew install tree
 brew install maven
-
+brew install python
 
 # GNU core utilities (those that come with OS X are outdated)
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
@@ -152,6 +152,12 @@ brew install hub
 
 
 
+# ncdu - better treesize
+brew install ncdu
+
+# iftop - where's bandwidth going
+brew install iftop
+
 # gist - gist -P (clipboard), gist -d "Random rbx bug" a.java
 brew install gist
 
@@ -167,6 +173,9 @@ brew link --overwrite maven-deluxe
 
 # cheatly (cheat improvement)
 gem install cheatly
+
+# glances (system monitor)
+sudo pip install glances
 
 # mtr - ping & traceroute. best.
 brew install mtr
