@@ -168,7 +168,7 @@ function fs() {
 
 
 ## find which pid is listening on port
-function useport {
+function portuse {
   lsof -n -i4TCP:"$@" | grep LISTEN
 }
 

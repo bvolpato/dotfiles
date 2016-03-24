@@ -152,6 +152,10 @@ brew install hub
 
 
 
+# gist - gist -P (clipboard), gist -d "Random rbx bug" a.java
+brew install gist
+
+
 #translate - $ trans "Oi, Mundo", $ trans -brief pt:en "Oi Mundo"
 brew install translate-shell
 
@@ -159,6 +163,10 @@ brew install translate-shell
 brew tap jcgay/jcgay
 brew install maven-deluxe
 brew link --overwrite maven-deluxe
+
+
+# cheatly (cheat improvement)
+gem install cheatly
 
 # mtr - ping & traceroute. best.
 brew install mtr

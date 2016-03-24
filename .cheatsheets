@@ -26,7 +26,7 @@ cheatmoar () {
 }
 
 # Print cheat sheet of dotfiles functions/aliases
-cheat () {
+cheatbash () {
     chtitle "bash cheatsheet"
     chcolor 'c' "\t\t-> trim new lines & copy to clipboard"
     chcolor '^+A' "\t\t-> jump to beginning of line"
