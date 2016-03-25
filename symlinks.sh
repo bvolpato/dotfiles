@@ -13,3 +13,8 @@ ln -sf ~/githubworkspace/dotfiles/.gitignore_global ~/.gitignore_global
 
 ln -s ~/githubworkspace/dotfiles/.vimrc ~/.vimrc
 ln -s ~/githubworkspace/dotfiles/.vim/ ~/
+
+#create empty folders
+mkdir ~/.vim/swaps
+mkdir ~/.vim/backups
+mkdir ~/.vim/undo

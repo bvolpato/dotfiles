@@ -171,6 +171,10 @@ brew install maven-deluxe
 brew link --overwrite maven-deluxe
 
 
+
+# crashhub - jvm bash // http://www.crashub.org/1.3/reference.html
+#brew install crash
+
 # cheatly (cheat improvement)
 gem install cheatly
 

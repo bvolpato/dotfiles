@@ -229,12 +229,16 @@ function gz() {
 # Usage: `json '{"foo":42}'` or `echo '{"foo":42}' | json`
 #python -c "import json,sys; print json.dumps(json.load(sys.stdin),indent=4,separators=(',',': '))"
 function json() {
+  jsonnocolor | pygmentize -l javascript;
+}
+function jsonnocolor() {
   if [ -t 0 ]; then # argument
-    python -mjson.tool <<< "$*" | pygmentize -l javascript;
+    python -mjson.tool <<< "$*"
   else # pipe
-    python -mjson.tool | pygmentize -l javascript;
+    python -mjson.tool
   fi;
 }
+
 
 
 # xml format
