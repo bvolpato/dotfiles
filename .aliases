@@ -188,3 +188,7 @@ alias mvnfast='mvn -T4'
 
 # Maven clean install
 alias mvnc='mvn clean install -Dmaven.test.skip'
+
+
+# CD Finder
+alias cdf='cdfinder'

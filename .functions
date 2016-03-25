@@ -120,7 +120,7 @@ function skip {
 }
 
 # Change working directory to the top-most Finder window location
-function cdf() { # short for `cdfinder`
+function cdfinder() { # cdf
   cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
 }
 
@@ -648,6 +648,45 @@ function dotbkp() {
   rm -rf ~/Dropbox/dotfiles/.git
   scp ~/githubworkspace/dotfiles/.priv8functions bruno@california:~/githubworkspace/dotfiles/
 }
+
+
+# Safari tools
+function safariurl() {
+  osascript -e 'tell application "Safari" to get URL of current tab of front window'
+}
+function safarisource() {
+  osascript -e 'tell application "Safari" to get source of current tab of front window'
+}
+function safaritext() {
+  osascript -e 'tell application "Safari" to get text of current tab of front window'
+}
+
+#Chrome tools
+function chromeurl() {
+  osascript -e 'tell app "Google Chrome" to URL of active tab of window 1'
+}
+
+# list selected finder files
+function finderselected() {
+  osascript <<EOT
+      tell application "Finder"
+          set theFiles to selection
+          set theList to ""
+          repeat with aFile in theFiles
+              set theList to theList & POSIX path of (aFile as alias) & "\n"
+          end repeat
+          theList
+      end tell
+EOT
+}
+
+
+
+
+function regex1 {
+  gawk 'match($0,/'$1'/, ary) { print ary['${2:-'1'}'] }';
+}
+
 
 
 function __git_dirty {

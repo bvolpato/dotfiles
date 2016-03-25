@@ -68,6 +68,16 @@ defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 
+
+
+################################# AppStore
+echo "Optimizing AppStore..."
+
+#Show Debug Menu
+defaults write com.apple.appstore ShowDebugMenu -bool true
+
+
+
 ################################# Safari
 echo "Optimizing Safari..."
 
@@ -254,6 +264,15 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 sudo pmset -a sms 0
 
 
+
+
+
+
+
+################## Locate
+
+#Enable locate database
+sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
 
 
 
