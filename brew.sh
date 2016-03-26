@@ -175,6 +175,10 @@ brew link --overwrite maven-deluxe
 # crashhub - jvm bash // http://www.crashub.org/1.3/reference.html
 #brew install crash
 
+# bsh (beanshell)
+wget http://www.beanshell.org/bsh-2.0b4.jar -O /usr/local/bin/bsh.jar
+
+
 # cheatly (cheat improvement)
 gem install cheatly
 
