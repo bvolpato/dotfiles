@@ -244,6 +244,9 @@ function jsonnocolor() {
 function bsh() {
   java -cp .:/usr/local/bin/bsh.jar bsh.Interpreter $*
 }
+function bshgui() {
+  java -cp .:/usr/local/bin/bsh.jar bsh.Interpreter $*
+}
 
 # xml format
 function xmlformat() {

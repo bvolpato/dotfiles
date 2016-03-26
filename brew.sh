@@ -179,11 +179,25 @@ brew link --overwrite maven-deluxe
 wget http://www.beanshell.org/bsh-2.0b4.jar -O /usr/local/bin/bsh.jar
 
 
+
 # cheatly (cheat improvement)
 gem install cheatly
 
 # glances (system monitor)
 sudo pip install glances
+
+
+# ffmpeg
+brew install ffmpeg
+
+# imagemagick
+brew install imagemagick
+
+# lolcommits - https://github.com/mroth/lolcommits
+sudo gem install lolcommits
+
+# tldr (short man)
+npm install -g tldr
 
 # mtr - ping & traceroute. best.
 brew install mtr
