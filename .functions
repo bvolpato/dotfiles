@@ -240,6 +240,10 @@ function jsonnocolor() {
 }
 
 
+# bsh
+function bsh() {
+  java -cp .:/usr/local/bin/bsh.jar bsh.Interpreter $*
+}
 
 # xml format
 function xmlformat() {
