@@ -179,6 +179,9 @@ brew link --overwrite maven-deluxe
 wget http://www.beanshell.org/bsh-2.0b4.jar -O /usr/local/bin/bsh.jar
 
 
+# hack font
+brew cask install caskroom/fonts/font-hack
+
 
 # cheatly (cheat improvement)
 gem install cheatly
