@@ -21,9 +21,13 @@ if hash brew 2> /dev/null; then
   source "$DIR/.totvsfunctions"
   source "$DIR/.priv8functions"
 
-  echo '~~ got r00t? ;-)'
+  # echo '~~ got r00t? ;-)'
 
 else
 
   echo "Brew not installed. Ignoring a few sources."
+fi
+
+if hash archey 2> /dev/null; then
+  archey
 fi

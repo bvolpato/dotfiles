@@ -74,6 +74,11 @@ brew install fswatch
 #autojump - jump to directory (j) or child dir (jc)
 brew install autojump
 
+
+# archey - system information
+brew install archey
+
+
 ################### general
 
 #read exif from files
@@ -198,6 +203,7 @@ brew install imagemagick
 
 # lolcommits - https://github.com/mroth/lolcommits
 sudo gem install lolcommits
+sudo gem install lolcat
 
 # tldr (short man)
 npm install -g tldr

@@ -10,7 +10,7 @@ fi
 
 #colorized commands
 alias du='du -csh'
-alias df='df -Th'
+alias df='df -h'
 alias ccat='pygmentize -g'
 alias top="htop"
 alias g='git'
