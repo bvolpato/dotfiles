@@ -398,7 +398,10 @@ function remotehost() {
   curl -sk http://ifconfig.me/host
 }
 function remoteua() {
-  curl -sk http://http://ifconfig.me/ua
+  curl http://httpbin.org/user-agent
+}
+function remotegetinfo() {
+  curl http://httpbin.org/get?show_env=1
 }
 
 function localip(){
