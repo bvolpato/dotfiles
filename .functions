@@ -389,6 +389,18 @@ function whois() {
   /usr/bin/whois -h whois.internic.net $domain | sed '/NOTICE:/q'
 }
 
+#get my remote ip
+# could use: ifconfig.me/ip
+function remoteip() {
+  curl -sk http://ipinfo.io/ip
+}
+function remotehost() {
+  curl -sk http://ifconfig.me/host
+}
+function remoteua() {
+  curl -sk http://http://ifconfig.me/ua
+}
+
 function localip(){
   function _localip(){ echo "📶 - "$(ipconfig getifaddr "$1"); }
   export -f _localip
