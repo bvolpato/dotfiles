@@ -186,6 +186,9 @@ alias wifioff="networksetup -setairportpower en0 off"
 # Maven parallel build by default
 alias mvnfast='mvn -T4'
 
+# Headless Maven by Default
+alias mvn='mvn -Djava.awt.headless=true'
+
 # Maven clean install
 alias mvnc='mvn clean install -Dmaven.test.skip'
 

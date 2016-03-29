@@ -715,6 +715,27 @@ function regex1 {
 
 
 
+# Colorize
+function logcolorize() {
+
+  SEDNOCOLOR="\o033[0m"    # unsets color to term's fg color
+  SEDRED='\o033[31m'        # Red
+  SEDGREEN='\o033[32m'      # Green
+  SEDYELLOW='\o033[33m'      # Yellow
+  SEDBLUE='\o033[34m'        # Blue
+
+  sed -e 's/\(.*INFO.*\)/'"$SEDBLUE"'\1'"$SEDNOCOLOR"'/' \
+    -e 's/\(.*WARN.*\)/'"$SEDYELLOW"'\1'"$SEDNOCOLOR"'/' \
+    -e 's/\(.*ERROR.*\)/'"$SEDRED"'\1'"$SEDNOCOLOR"'/' \
+    -e 's/\(.*SEVERE.*\)/'"$SEDRED"'\1'"$SEDNOCOLOR"'/' \
+    -e 's/\(.*at.*(\(.*:.*\|Native Method\)).*\)/'"$SEDRED"'\1'"$SEDNOCOLOR"'/'
+
+
+
+}
+
+
+
 function __git_dirty {
   git diff --quiet HEAD &>/dev/null
   [ $? == 1 ] && echo "!"
