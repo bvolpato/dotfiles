@@ -176,8 +176,12 @@ brew install maven-deluxe
 brew link --overwrite maven-deluxe
 
 
+# company ios dependencies
+brew install swiftlint
+brew install carthage
 
-# crashhub - jvm bash // http://www.crashub.org/1.3/reference.html
+
+# crashhub - java/jvm bash // http://www.crashub.org/1.3/reference.html
 #brew install crash
 
 # bsh (beanshell)

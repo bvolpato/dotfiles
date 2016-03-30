@@ -512,6 +512,18 @@ function cp_p () {
 
 
 
+# Read JSON Keys
+function jsonkeys() {
+  python -c $'
+import json,sys;
+obj=json.load(sys.stdin);
+
+for each in obj.keys():
+    print "%s" % (each)
+';
+}
+
+
 # Read JSON Tag
 function jsontag() {
   python -c $'
@@ -724,7 +736,7 @@ function logcolorize() {
   SEDYELLOW='\o033[33m'      # Yellow
   SEDBLUE='\o033[34m'        # Blue
 
-  sed -e 's/\(.*INFO.*\)/'"$SEDBLUE"'\1'"$SEDNOCOLOR"'/' \
+  sed -e 's/\(.*\(INFO\|DEBUG\).*\)/'"$SEDBLUE"'\1'"$SEDNOCOLOR"'/' \
     -e 's/\(.*WARN.*\)/'"$SEDYELLOW"'\1'"$SEDNOCOLOR"'/' \
     -e 's/\(.*ERROR.*\)/'"$SEDRED"'\1'"$SEDNOCOLOR"'/' \
     -e 's/\(.*SEVERE.*\)/'"$SEDRED"'\1'"$SEDNOCOLOR"'/' \
@@ -735,6 +747,31 @@ function logcolorize() {
 }
 
 
+
+function mysubnet() {
+  echo "`localip | cut -d"." -f1-3`.0/${1-24}"
+}
+
+
+# Removes elements from an array based on a given regex pattern.
+# Usage: filter_arr pattern array
+# Usage: filter_arr pattern element1 element2 ...
+#https://stackoverflow.com/questions/3578584/bash-how-to-delete-elements-from-an-array-based-on-a-pattern
+function filter_arr() {
+  arr=($@)
+  arr=(${arr[@]:1})
+  dirs=($(for i in ${arr[@]}
+    do echo $i
+  done | grep $1))
+  echo ${dirs[@]}
+}
+
+
+
+## Get protocol + host of an url
+function urlhost() {
+  perl -n -e 'm{(https?://[^/]+)(/[^?]+)};print $1 . "/"'
+}
 
 function __git_dirty {
   git diff --quiet HEAD &>/dev/null
