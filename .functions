@@ -722,7 +722,7 @@ EOT
 
 
 function regex1 {
-  gawk 'match($0,/'$1'/, ary) { print ary['${2:-'1'}'] }';
+  gawk 'match($0,/'"$1"'/, ary) { print ary['${2:-'1'}'] }';
 }
 
 
@@ -773,6 +773,19 @@ function urlhost() {
   perl -n -e 'm{(https?://[^/]+)(/[^?]+)};print $1 . "/"'
 }
 
+
+### brew formulas
+function brewformulas() {
+  for formulae in ${1:-~/githubworkspace/homebrew/Library/Formula/*};
+  do
+    filename=${formulae##*/}
+    formula=${filename%.*}
+
+    desc=$(cat $formulae| regex1 "desc \"(.*)\"")
+    head=$(cat $formulae| regex1 "head \"(.*)\"")
+    echo -e "$formula\t$head\t$desc"
+  done;
+}
 function __git_dirty {
   git diff --quiet HEAD &>/dev/null
   [ $? == 1 ] && echo "!"

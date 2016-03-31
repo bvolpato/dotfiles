@@ -43,6 +43,7 @@ brew install git
 brew install wget --with-iri
 brew install tree
 brew install maven
+brew install ant
 brew install python
 
 # GNU core utilities (those that come with OS X are outdated)
@@ -66,6 +67,10 @@ brew install hydra
 #pwd crack
 brew install john
 
+
+
+# cfr-decompiler - java decompiler
+brew install cfr-decompiler
 
 # file system watch
 # fswatch -o ~/path/to/watch | xargs -n1 ~/script/to/run/when/files/change.sh
@@ -185,7 +190,14 @@ brew install carthage
 #brew install crash
 
 # bsh (beanshell)
-wget http://www.beanshell.org/bsh-2.0b4.jar -O /usr/local/bin/bsh.jar
+#wget http://www.beanshell.org/bsh-2.0b4.jar -O /usr/local/bin/bsh.jar
+
+# Java REPL better than BSH :)
+brew install javarepl
+
+
+# Diff-so-fancy (diff a b | diff-so-fancy)
+brew install diff-so-fancy
 
 
 # hack font

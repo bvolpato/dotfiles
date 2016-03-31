@@ -15,6 +15,12 @@ source "$DIR/.options"
 source "$DIR/.aliases"
 source "$DIR/.cheatsheets"
 
+
+## curl swag
+if hash _curlswag.sh 2>/dev/null; then
+  source "_curlswag.sh"
+fi
+
 if hash brew 2> /dev/null; then
   source "$DIR/.complete"
   source "$DIR/.functions"
