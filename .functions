@@ -748,6 +748,12 @@ function logcolorize() {
 
 
 
+
+
+## network tools - nmap (aroundme, aroundme 16)
+function aroundme() {
+  nmap -sP `mysubnet $*`
+}
 function mysubnet() {
   echo "`localip | cut -d"." -f1-3`.0/${1-24}"
 }
@@ -786,6 +792,14 @@ function brewformulas() {
     echo -e "$formula\t$head\t$desc"
   done;
 }
+
+
+# Pipe From - print from specific pattern
+function pipefrom() {
+  sed -n '/'"$1"'/,$p'
+}
+
+
 function __git_dirty {
   git diff --quiet HEAD &>/dev/null
   [ $? == 1 ] && echo "!"

@@ -43,6 +43,7 @@ chsh -s /usr/local/bin/bash
 
 
 
+#Cask
 brew tap caskroom/cask
 brew install brew-cask
 brew tap caskroom/versions
@@ -58,6 +59,7 @@ fi
 
 
 
+
 # tools
 brew install node
 brew install git
@@ -66,6 +68,8 @@ brew install tree
 brew install maven
 brew install ant
 brew install python
+
+brew install jq
 
 # GNU core utilities (those that come with OS X are outdated)
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
@@ -169,7 +173,8 @@ brew cask install --appdir="/Applications" mactex
 
 
 # port redirection
-brew install ngrok
+brew install homebrew/binary/ngrok2
+
 
 # File Archiver Management
 brew cask install keka
@@ -187,6 +192,9 @@ brew install keybase
 #Git-Hub
 brew install hub
 
+
+#htop - top substitor
+brew install htop
 
 
 # ncdu - better treesize
