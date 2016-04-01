@@ -14,7 +14,7 @@ if [[ $os_type == "Darwin" ]]; then
   export TERM="xterm-color"
 fi
 
-if [[ $(hostname) == "California" ]]; then
+if [ -d ~/.linuxbrew/bin ]; then
 	export PATH=~/.linuxbrew/bin:~/.linuxbrew/sbin:$PATH
 fi
 

@@ -1,15 +1,34 @@
 #!/bin/bash
 
-# get the command line tools!
-xcode-select --install
 
-# you have to do this at some point
-sudo xcodebuild -license accept
 
-# install brew
-if ! hash brew 2> /dev/null; then
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+if [ "$(uname -s)" == "Darwin" ]; then
+  # get the command line tools!
+  xcode-select --install
+
+  # you have to do this at some point
+  sudo xcodebuild -license accept
+
+  # install brew
+  if ! hash brew 2> /dev/null; then
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
+
+elif [ "$(uname -s)" == "Linux" ]; then
+
+  sudo apt-get install build-essential -y
+
+  # install brew
+  if ! hash brew 2> /dev/null; then
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/linuxbrew/go/install)"
+  fi
+
 fi
+
+
+
+### updates
+
 
 brew update
 brew upgrade
@@ -32,8 +51,10 @@ brew tap caskroom/versions
 # useful
 
 #window resizing
-brew cask install spectacle
-brew cask install vlc
+if [ "$(uname -s)" == "Darwin" ]; then
+  brew cask install spectacle
+  brew cask install vlc
+fi
 
 
 
@@ -117,13 +138,19 @@ brew install youtube-dl
 brew install pv
 
 
+#aldo - learn morse code
+brew install aldo
+
+#ansiweather - ansiweather -l {location}
+brew install ansiweather
+
 #conversor
 brew install pandoc
 
 #history
 brew install hh
 
-#network
+#network tool
 brew install nmap
 
 #terminal tool
@@ -204,25 +231,12 @@ brew install diff-so-fancy
 brew cask install caskroom/fonts/font-hack
 
 
-# cheatly (cheat improvement)
-gem install cheatly
-
-# glances (system monitor)
-sudo pip install glances
-
 
 # ffmpeg
 brew install ffmpeg
 
 # imagemagick
 brew install imagemagick
-
-# lolcommits - https://github.com/mroth/lolcommits
-sudo gem install lolcommits
-sudo gem install lolcat
-
-# tldr (short man)
-npm install -g tldr
 
 # mtr - ping & traceroute. best.
 brew install mtr

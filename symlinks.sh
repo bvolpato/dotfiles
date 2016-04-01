@@ -1,7 +1,7 @@
 #!/bin/bash
 
-ln -s ~/githubworkspace/dotfiles/.bashrc ~/.bashrc
-ln -s ~/githubworkspace/dotfiles/.bash_profile ~/.bash_profile
+# ln -s ~/githubworkspace/dotfiles/.bashrc ~/.bashrc
+# ln -s ~/githubworkspace/dotfiles/.bash_profile ~/.bash_profile
 
 ln -sf ~/githubworkspace/dotfiles/.bowerrc ~/.bowerrc
 ln -sf ~/githubworkspace/dotfiles/.wgetrc ~/.wgetrc

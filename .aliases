@@ -193,5 +193,8 @@ alias mvn='mvn -Djava.awt.headless=true'
 alias mvnc='mvn clean install -Dmaven.test.skip'
 
 
+# Java Decompiler
+alias jad="cfr-decompiler"
+
 # CD Finder
 alias cdf='cdfinder'
