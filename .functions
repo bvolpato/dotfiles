@@ -754,6 +754,10 @@ function logcolorize() {
 function aroundme() {
   nmap -sP `mysubnet $*`
 }
+function aroundmeos() {
+  sudo nmap -O --osscan-guess `mysubnet $*`
+}
+
 function mysubnet() {
   echo "`localip | cut -d"." -f1-3`.0/${1-24}"
 }
