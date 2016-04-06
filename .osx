@@ -9,6 +9,11 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 
+
+# Update DB Link
+sudo ln -s /usr/libexec/locate.updatedb /usr/local/bin/updatedb
+
+
 # Always show scrollbars
 # Possible values: `WhenScrolling`, `Automatic` and `Always`
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"

@@ -22,6 +22,10 @@ fi;
 complete -W "NSGlobalDomain" defaults;
 
 
+# Maven completion
+complete -o "nospace" -W "clean install deploy assembly dependency:tree dependency:list dependency:purge-local-repository -Dmaven.test.skip" mvn;
+
+
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
 
