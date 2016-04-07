@@ -23,7 +23,7 @@ complete -W "NSGlobalDomain" defaults;
 
 
 # Maven completion
-complete -o "nospace" -W "clean install deploy assembly dependency:tree dependency:list dependency:purge-local-repository -Dmaven.test.skip" mvn;
+complete -o "default" -o "nospace" -W "clean install eclipse:eclipse deploy assembly dependency:tree dependency:list dependency:purge-local-repository -Dmaven.test.skip -DdownloadSources" mvn;
 
 
 # Add `killall` tab completion for common apps
