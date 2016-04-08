@@ -685,6 +685,9 @@ function dotbkp() {
   rsync -ruv --exclude '.git' ~/githubworkspace/dotfiles/ ~/Dropbox/dotfiles/
   rm -rf ~/Dropbox/dotfiles/.git
   scp ~/githubworkspace/dotfiles/.priv8functions bruno@california:~/githubworkspace/dotfiles/
+  scp ~/githubworkspace/dotfiles/.priv8functions bruno@alphaeon:~/githubworkspace/dotfiles/
+  scp ~/githubworkspace/dotfiles/.priv8functions bruno@bruno1:~/githubworkspace/dotfiles/
+
 }
 
 

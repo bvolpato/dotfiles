@@ -1,6 +1,8 @@
 #!/bin/bash
 
 
+# Ask for the administrator password upfront
+sudo -v
 
 if [ "$(uname -s)" == "Darwin" ]; then
   # get the command line tools!
@@ -17,11 +19,14 @@ if [ "$(uname -s)" == "Darwin" ]; then
 elif [ "$(uname -s)" == "Linux" ]; then
 
   sudo apt-get install build-essential -y
+  sudo apt-get install ruby -y
 
   # install brew
   if ! hash brew 2> /dev/null; then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/linuxbrew/go/install)"
   fi
+
+  export PATH=~/.linuxbrew/bin:~/.linuxbrew/sbin:$PATH
 
 fi
 
@@ -113,9 +118,6 @@ brew install fswatch
 #autojump - jump to directory (j) or child dir (jc)
 brew install autojump
 
-
-# archey - system information
-brew install archey
 
 
 ################### general
@@ -233,6 +235,10 @@ sudo chown root $mtrlocation/sbin/mtr
 ## Mac OS X Only stuff
 
 if [ "$(uname -s)" == "Darwin" ]; then
+
+# archey - system information
+brew install archey
+
 
 #window resizing
 brew cask install spectacle
