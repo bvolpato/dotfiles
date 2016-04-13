@@ -3,17 +3,17 @@
 
 ## Progress
 function echo_progress() {
-  echo -e "`mytimestamp` - $*"
+  echo -e "`mytimestamp` - ${*}"
 }
 
 ## Success
 function echo_success() {
-  echo -e "$GREEN`mytimestamp` - $*"
+  echo -e "$GREEN`mytimestamp` - ${*}${NOCOLOR}"
 }
 
 ## Failure
 function echo_failure() {
-  echo -e "$RED`mytimestamp` - $*"
+  echo -e "$RED`mytimestamp` - ${*}${NOCOLOR}"
 }
 
 
@@ -810,6 +810,23 @@ function pipefrom() {
 function __git_dirty {
   git diff --quiet HEAD &>/dev/null
   [ $? == 1 ] && echo "!"
+}
+
+
+# pull latest and print status
+function gitpullandstatus() {
+  (
+    cd $1
+    echo_progress "________________________________________"
+    echo_progress "Updating ${1}... Current branch: $(mybranch). Pending changes: $(mybranchpending)"
+    echo_progress "`git pull`"
+    echo_progress "`git status`"
+
+  )
+}
+
+function mybranchpending {
+  echo `git status -s | wc -l`
 }
 
 function mybranch {

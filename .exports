@@ -50,7 +50,7 @@ export PAGER=vimpager
 
 
 # Regular Colors
-NOCOLOR="\033[0m"    # unsets color to term's fg color
+NOCOLOR="\033[0m"         # unsets color to term's fg color
 BLACK='\033[0;30m'        # Black
 RED='\033[0;31m'          # Red
 GREEN='\033[0;32m'        # Green

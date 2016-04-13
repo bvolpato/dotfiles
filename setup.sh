@@ -31,6 +31,11 @@ gem install cheatly
 sudo pip install glances
 
 
+#howdoi - solutions/snippets on command line
+sudo pip install howdoi
+
+
+
 # lolcommits - https://github.com/mroth/lolcommits
 sudo gem install lolcommits
 sudo gem install lolcat
@@ -52,6 +57,7 @@ cp ./fonts/Inconsolata.otf ~/Library/Fonts
 wget https://raw.githubusercontent.com/gnachman/iTerm2/master/tests/imgcat -O /usr/local/bin/imgcat
 chmod +x /usr/local/bin/imgcat
 
-
-wget https://bahoom.com/hyperswitch/HyperSwitch.zip
-unzip HyperSwitch.zip -d ~/Applications
+if [ "$(uname -s)" == "Darwin" ]; then
+  wget https://bahoom.com/hyperswitch/HyperSwitch.zip
+  unzip HyperSwitch.zip -d ~/Applications
+fi
