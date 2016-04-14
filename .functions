@@ -445,6 +445,7 @@ function extract() {
       *.tbz2) tar xjf "$fullpath" ;;
       *.tgz) tar xzf "$fullpath" ;;
       *.txz) tar Jxvf "$fullpath" ;;
+      *.rar) unrar x "$fullpath" ;;
       *.zip) unzip "$fullpath" ;;
       *) echo "'$1' cannot be extracted via extract()" && cd .. && ! $didfolderexist && rm -r "$foldername" ;;
     esac
