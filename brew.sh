@@ -251,6 +251,9 @@ brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch 
 # File Archiver Management
 brew cask install keka
 
+# gif screenshot
+brew cask install licecap
+
 # Core casks
 brew cask install --appdir="/Applications" alfred
 brew cask install --appdir="/Applications" iterm2

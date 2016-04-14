@@ -1,6 +1,10 @@
 #!/bin/bash
 
 
+# Ask for the administrator password upfront
+sudo -v
+
+
 if [ -z "`cat ~/.bashrc | grep '.bash_profile'`" ]; then
   echo "source ~/.bash_profile;" >> ~/.bashrc;
 fi
