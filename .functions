@@ -814,6 +814,11 @@ function __git_dirty {
 }
 
 
+# best chess move by FEN
+function chessmove() {
+  curl -s -XPUT 'http://www.chess-hub.com/moves/calculate' -H 'Content-Type: application/x-www-form-urlencoded' --data "fen%5Bfull_string%5D=$*"  | regex1 "value=\\\\'.*\\\\'>(.*?)\<.*nscore"
+}
+
 # pull latest and print status
 function gitpullandstatus() {
   (

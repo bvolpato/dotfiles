@@ -38,11 +38,19 @@ fi
 brew update
 brew upgrade
 
+
+#zsh
+#brew install zsh zsh-completions
+#curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+#chsh -s /usr/local/bin/zsh
+
+
 #use new bash
 brew install bash
 
 # Add the new shell to the list of allowed shells
 sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells'
+
 # Change to the new shell
 chsh -s /usr/local/bin/bash
 
@@ -155,6 +163,9 @@ brew install nmap
 brew install tmux # ctrl+b default
 
 
+#dnsmasq
+brew install dnsmasq
+
 
 # port redirection
 brew install homebrew/binary/ngrok2
@@ -209,6 +220,8 @@ brew install javarepl
 
 # Diff-so-fancy (diff a b | diff-so-fancy)
 brew install diff-so-fancy
+git config --global pager.diff "diff-so-fancy | less --tabs=4 -RFX" && \
+git config --global pager.show "diff-so-fancy | less --tabs=4 -RFX"
 
 
 # hack font
