@@ -808,6 +808,11 @@ function pipefrom() {
 }
 
 
+# Convert whiteboard -- https://gist.github.com/lelandbatey/8677901
+function whiteboard() {
+  convert "$1" -morphology Convolve DoG:15,100,0 -negate -normalize -blur 0x1 -channel RBG -level 60%,91%,0.1 "$2"
+}
+
 function __git_dirty {
   git diff --quiet HEAD &>/dev/null
   [ $? == 1 ] && echo "!"
@@ -815,8 +820,17 @@ function __git_dirty {
 
 
 # best chess move by FEN
+function chessbestmove() {
+  curl -s -XPUT 'http://www.chess-hub.com/moves/calculate' -H 'Content-Type: application/x-www-form-urlencoded' --data "fen%5Bfull_string%5D=$*"  | grep "The best move is" | cut -d'>' -f 5 | cut -d'<' -f 1
+}
+
+# get chess.com best move -- using ID
 function chessmove() {
-  curl -s -XPUT 'http://www.chess-hub.com/moves/calculate' -H 'Content-Type: application/x-www-form-urlencoded' --data "fen%5Bfull_string%5D=$*"  | regex1 "value=\\\\'.*\\\\'>(.*?)\<.*nscore"
+  gameResponse=$(curl -s $1)
+  fen=$(curl -s $1 | pup 'div.moveactions input attr{value}')
+  bestMove=$(chessbestmove $fen)
+
+  echo "Game URL: $1, FEN: '$fen', Best Move: $(chessbestmove $fen)"
 }
 
 # pull latest and print status

@@ -4,7 +4,7 @@
 # If not running interactively, don't do anything
 [[ $- == *i* ]] || return
 
-
+#zsh - ${(%):-%N}
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 export PATH=/usr/local/bin:$PATH

@@ -18,6 +18,7 @@
   sprint = !git me --since='+15 days'
   month = !git me --since='+1 Month'
   alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\ => \\2/' | sort
+  unmerge = reset --hard ORIG_HEAD
   export-patch = !git format-patch --stdout $1 > ~/`git bn`.diff
 
 [color]
@@ -52,7 +53,7 @@
 	excludesfile = ~/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true

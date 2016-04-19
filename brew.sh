@@ -184,6 +184,10 @@ brew install hub
 brew install htop
 
 
+
+#command line tool for processing HTML
+brew install pup
+
 # ncdu - better treesize
 brew install ncdu
 
