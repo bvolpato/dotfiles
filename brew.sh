@@ -90,6 +90,7 @@ brew install maven
 brew install ant
 brew install python
 brew install jq
+brew install scala
 
 # GNU core utilities (those that come with OS X are outdated)
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
@@ -188,6 +189,9 @@ brew install htop
 #command line tool for processing HTML
 brew install pup
 
+#googler
+brew install googler
+
 # ncdu - better treesize
 brew install ncdu
 
@@ -196,6 +200,10 @@ brew install iftop
 
 # gist - gist -P (clipboard), gist -d "Random rbx bug" a.java
 brew install gist
+
+
+# mac spoofing - free wifi forever on airports :) - sudo spoof-mac randomize en0
+brew install spoof-mac
 
 
 #translate - $ trans "Oi, Mundo", $ trans -brief pt:en "Oi Mundo"

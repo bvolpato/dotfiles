@@ -606,25 +606,35 @@ function jenkinsbuildandwait() {
     curl -v -X POST "$1/buildWithParameters"
   fi
 
-
-  sleep 10
-
-  url="$1/lastBuild/api/json"
-  lastBuildResult=$(curl -s "$url" | jsontag result)
-  while [ "$lastBuildResult" != "SUCCESS" ];
-  do
-  echo "`mytimestamp` - Waiting for $1 to complete (result: $lastBuildResult)";
-  sleep 10
-
-  lastBuildResult=$(curl -s "$url" | jsontag result)
-
-  done
+  jenkinswaitforbuild "$1/lastBuild"
 
   echo "`mytimestamp` - Finished $1!";
 
 }
 
+# wait for build on jenkins
+function jenkinswaitforbuild() {
 
+  url="$1/api/json"
+  #echo "URL: $url"
+
+  sleep 10
+  lastBuildResult=$(curl -s "$url" | jsontag result)
+  while [ "$lastBuildResult" != "SUCCESS" ];
+  do
+    echo "`mytimestamp` - Waiting for $1 to complete (result: $lastBuildResult)";
+    sleep 10
+
+    lastBuildResult=$(curl -s "$url" | jsontag result)
+
+  done
+
+  if hash terminal-notifier 2> /dev/null; then
+    terminal-notifier -title "Jenkins Build" -message "Job '$1' was finished"
+  fi
+
+
+}
 
 #Random say voice
 function sayrandomvoice() {
@@ -836,11 +846,25 @@ function chessmove() {
 # pull latest and print status
 function gitpullandstatus() {
   (
-    cd $1
+
     echo_progress "________________________________________"
-    echo_progress "Updating ${1}... Current branch: $(mybranch). Pending changes: $(mybranchpending)"
-    echo_progress "`git pull`"
-    echo_progress "`git status`"
+    cd $1
+
+    currentBranch=$(mybranch)
+    if [ $? -eq 0 ]
+    then
+      echo_progress "Updating ${1}... Current branch: ${currentBranch}. Pending changes: $(mybranchpending)"
+
+      if [ $# -eq 2 ] && [ "$currentBranch" != "$2" ]; then
+        git checkout $2
+      fi
+
+      echo_progress "`git pull`"
+      echo_progress "`git status`"
+    else
+      echo_progress "Not updating ${1} - cd failed."
+    fi
+
 
   )
 }

@@ -211,3 +211,8 @@ alias jad="cfr-decompiler"
 
 # CD Finder
 alias cdf='cdfinder'
+
+
+#google
+alias google='googler'
+alias define='googler -n 2 define'
