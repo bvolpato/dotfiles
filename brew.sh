@@ -201,6 +201,9 @@ brew install iftop
 # gist - gist -P (clipboard), gist -d "Random rbx bug" a.java
 brew install gist
 
+# control chrome from cmd // chrome-cli list tabs
+brew install chrome-cli
+
 
 # mac spoofing - free wifi forever on airports :) - sudo spoof-mac randomize en0
 brew install spoof-mac

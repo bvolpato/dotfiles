@@ -40,7 +40,8 @@ sudo pip install glances
 #howdoi - solutions/snippets on command line
 sudo pip install howdoi
 
-
+#jekyll
+sudo gem install jekyll
 
 # lolcommits - https://github.com/mroth/lolcommits
 sudo gem install lolcommits
