@@ -834,13 +834,23 @@ function chessbestmove() {
   curl -s -XPUT 'http://www.chess-hub.com/moves/calculate' -H 'Content-Type: application/x-www-form-urlencoded' --data "fen%5Bfull_string%5D=$*"  | grep "The best move is" | cut -d'>' -f 5 | cut -d'<' -f 1
 }
 
-# get chess.com best move -- using ID
-function chessmove() {
+# get fen from game
+function chessfen() {
   gameResponse=$(curl -s $1)
   fen=$(curl -s $1 | pup 'div.moveactions input attr{value}')
-  bestMove=$(chessbestmove $fen)
+  echo $fen
+}
+# get chess.com best move -- using ID
+function chessmove() {
+  bestMove=$(chessbestmove `chessfen $1`)
 
-  echo "Game URL: $1, FEN: '$fen', Best Move: $(chessbestmove $fen)"
+  if [[ $@ == *'-s'* ]]; then
+    echo "$(chessbestmove $fen)"
+  else
+    echo "Game URL: $1, FEN: '$fen', Best Move: $(chessbestmove $fen)"
+  fi
+
+
 }
 
 # pull latest and print status

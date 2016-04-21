@@ -185,6 +185,9 @@ brew install hub
 brew install htop
 
 
+# http parser - hxnormalize, hxselect
+brew install html-xml-utils
+
 
 #command line tool for processing HTML
 brew install pup
@@ -203,6 +206,9 @@ brew install gist
 
 # control chrome from cmd // chrome-cli list tabs
 brew install chrome-cli
+
+# convert endlines - dos2unix
+brew install dos2unix
 
 
 # mac spoofing - free wifi forever on airports :) - sudo spoof-mac randomize en0
