@@ -10,6 +10,7 @@ fi
 
 # Prettier date and time
 alias now='date +"%T'
+alias unixdate='date +%s'
 alias nowtime=now
 alias nowdate='date +"%d-%m-%Y"'
 
