@@ -391,16 +391,16 @@ function whois() {
 
 #get my remote ip
 # could use: ifconfig.me/ip
-function remoteip() {
+function httpip() {
   curl -sk http://ipinfo.io/ip
 }
-function remotehost() {
+function httphost() {
   curl -sk http://ifconfig.me/host
 }
-function remoteua() {
+function httpua() {
   curl http://httpbin.org/user-agent
 }
-function remotegetinfo() {
+function httpgetinfo() {
   curl http://httpbin.org/get?show_env=1
 }
 
