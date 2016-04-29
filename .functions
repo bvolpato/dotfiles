@@ -768,6 +768,11 @@ function logcolorize() {
 function aroundme() {
   nmap -sP `mysubnet $*`
 }
+
+function aroundmemac() {
+  nmap -sP -n `mysubnet $*`
+}
+
 function aroundmeos() {
   sudo nmap -O --osscan-guess `mysubnet $*`
 }
