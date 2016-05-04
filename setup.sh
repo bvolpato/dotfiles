@@ -67,4 +67,17 @@ chmod +x /usr/local/bin/imgcat
 if [ "$(uname -s)" == "Darwin" ]; then
   wget https://bahoom.com/hyperswitch/HyperSwitch.zip
   unzip HyperSwitch.zip -d ~/Applications
+
+
+  #redirect everything that's .build to local
+  mkdir -pv $(brew --prefix)/etc/ && \
+  echo 'address=/.build/127.0.0.1' > $(brew --prefix)/etc/dnsmasq.conf && \
+  sudo cp -v $(brew --prefix dnsmasq)/homebrew.mxcl.dnsmasq.plist /Library/LaunchDaemons && \
+  sudo launchctl load -w /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist && \
+  sudo mkdir -v /etc/resolver && \
+  sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/build'
+
+  sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder
+
+
 fi
