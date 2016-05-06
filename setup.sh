@@ -30,6 +30,14 @@ curl -L https://iterm2.com/misc/install_shell_integration.sh | bash
 # non-brew packages
 
 
+#sdk
+curl -s get.sdkman.io | bash
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+#sdk install grails
+#sdk install groovy
+
+
 # cheatly (cheat improvement)
 gem install cheatly
 
