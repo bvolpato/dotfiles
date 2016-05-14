@@ -695,6 +695,7 @@ function dotbkp() {
 
   rsync -ruv --exclude '.git' ~/githubworkspace/dotfiles/ ~/Dropbox/dotfiles/
   rm -rf ~/Dropbox/dotfiles/.git
+  scp ~/githubworkspace/dotfiles/.priv8functions bruno@alphaeonapp6:~/githubworkspace/dotfiles/
   scp ~/githubworkspace/dotfiles/.priv8functions bruno@california:~/githubworkspace/dotfiles/
   #scp ~/githubworkspace/dotfiles/.priv8functions bruno@alphaeon:~/githubworkspace/dotfiles/
   scp ~/githubworkspace/dotfiles/.priv8functions bruno@bruno1:~/githubworkspace/dotfiles/
@@ -909,6 +910,14 @@ function chromecookies() {
   sqlite3 -separator '	' "${COOKIES:-Cookies}" "$QUERY"
 
 }
+
+
+## Return PID for port
+function portpid() {
+  PID=`lsof -t -i :$1`
+  echo $PID
+}
+
 function mybranchpending {
   echo `git status -s | wc -l`
 }

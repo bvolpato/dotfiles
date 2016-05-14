@@ -224,6 +224,9 @@ brew install maven-deluxe
 brew link --overwrite maven-deluxe
 
 
+# silver searcher - ag
+brew install the_silver_searcher
+
 # company ios dependencies
 brew install swiftlint
 brew install carthage

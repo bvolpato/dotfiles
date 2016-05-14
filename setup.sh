@@ -57,8 +57,8 @@ sudo gem install lolcat
 
 # tldr (short man)
 npm install -g tldr
-
-
+npm install -g gulp
+npm install -g bower
 
 
 sudo easy_install Pygments
