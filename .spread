@@ -34,6 +34,6 @@ else
   echo "Brew not installed. Ignoring a few sources."
 fi
 
-if hash archey 2> /dev/null; then
-  archey
-fi
+#if hash archey 2> /dev/null; then
+  #archey
+#fi
