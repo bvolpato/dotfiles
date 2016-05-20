@@ -56,9 +56,11 @@ sudo gem install lolcommits
 sudo gem install lolcat
 
 # tldr (short man)
-npm install -g tldr
-npm install -g gulp
-npm install -g bower
+sudo npm install -g tldr
+
+# front-end deps
+sudo npm install -g gulp
+sudo npm install -g bower
 
 
 sudo easy_install Pygments

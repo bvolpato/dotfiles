@@ -18,8 +18,14 @@ if [ "$(uname -s)" == "Darwin" ]; then
 
 elif [ "$(uname -s)" == "Linux" ]; then
 
-  sudo apt-get install build-essential -y
-  sudo apt-get install ruby -y
+  if hash apt-get 2> /dev/null; then
+    sudo apt-get install build-essential -y
+    sudo apt-get install ruby -y
+    sudo apt-get install npm -y
+
+    sudo apt-get install nodejs -y
+    sudo ln -s /usr/bin/nodejs /usr/bin/node
+  fi
 
   # install brew
   if ! hash brew 2> /dev/null; then
