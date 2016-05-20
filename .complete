@@ -23,7 +23,7 @@ complete -W "NSGlobalDomain" defaults;
 
 
 # Maven completion
-complete -o "default" -o "nospace" -W "clean install test package deploy assembly eclipse:eclipse dependency:tree dependency:go-offline dependency:list dependency:purge-local-repository -Dmaven.test.skip -DskipTests=true -DdownloadSources" mvn mvncfast mvnfast
+complete -o "default" -o "nospace" -W "clean install test package deploy assembly eclipse:eclipse license:format dependency:tree dependency:go-offline dependency:list dependency:purge-local-repository -Dmaven.test.skip -DskipTests=true -DdownloadSources" mvn mvncfast mvnfast
 
 # AWS Completion
 complete -C aws_completer aws
