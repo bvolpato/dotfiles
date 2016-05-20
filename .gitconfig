@@ -20,6 +20,7 @@
   alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\ => \\2/' | sort
   unmerge = reset --hard ORIG_HEAD
   export-patch = !git format-patch --stdout $1 > ~/`git bn`.diff
+  rank = !git shortlog -s -n
 
 [color]
   # Use colors in Git commands that are capable of colored output when outputting to the terminal
@@ -53,7 +54,7 @@
 	excludesfile = ~/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
