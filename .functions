@@ -922,6 +922,14 @@ function itermtabremote() {
   sleep 0.5
 }
 
+
+function new-alias() {
+  local last_command=$(echo `history |tail -n2 |head -n1` | sed 's/[0-9]* //')
+  echo alias $1="'""$last_command""'" >> ~/githubworkspace/dotfiles/.aliases
+  . ~/githubworkspace/dotfiles/.aliases
+}
+
+
 ## Return PID for port
 function portpid() {
   PID=`lsof -t -i :$1`
