@@ -930,6 +930,16 @@ function new-alias() {
 }
 
 
+
+# add project to classpath
+function addtoclasspath() {
+  xmlstarlet ed --inplace -s "/classpath" -t elem -n "classpathentry" -v "" \
+    -i "//classpathentry[last()]" -t attr -n "combineaccessrules" -v "false" \
+    -i "//classpathentry[last()]" -t attr -n "kind" -v "src" \
+    -i "//classpathentry[last()]" -t attr -n "path" -v "/$1" ${2:-".classpath"}
+
+}
+
 ## Return PID for port
 function portpid() {
   PID=`lsof -t -i :$1`
