@@ -666,7 +666,7 @@ function grepkill() {
 ##sort by timestamp alphabetically
 function sortbytimestamp() {
 
-  for fi in `ls -1 | grep -v ".txt"`
+  for fi in `gls -1v | grep -v ".txt"`
   do
     echo "Touch $fi..."
     touch $fi
