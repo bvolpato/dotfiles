@@ -875,6 +875,7 @@ function gitpullandstatus() {
         git checkout $2
       fi
 
+      echo_progress "`git fetch`"
       echo_progress "`git pull`"
       echo_progress "`git status`"
     else
@@ -939,6 +940,11 @@ function addtoclasspath() {
     -i "//classpathentry[last()]" -t attr -n "path" -v "/$1" ${2:-".classpath"}
 
 }
+
+function iterm2_print_user_vars() {
+  iterm2_set_user_var gitBranch $(__git_branch)
+}
+
 
 ## Return PID for port
 function portpid() {
