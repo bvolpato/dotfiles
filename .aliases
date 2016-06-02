@@ -203,8 +203,8 @@ alias mvnfast='mvn -T4'
 alias mvn='mvn -Djava.awt.headless=true'
 
 # Maven clean install
-alias mvnc='mvn clean install -Dmaven.test.skip'
-alias mvncfast='mvn -T4 clean install -Dmaven.test.skip'
+alias mvnc='mvn clean install -DskipTests'
+alias mvncfast='mvn -T4 clean install -DskipTests'
 
 
 # Java Decompiler
