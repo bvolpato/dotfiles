@@ -946,6 +946,20 @@ function iterm2_print_user_vars() {
 }
 
 
+
+function get-elasticsearchcluster() {
+  server=${1:-"localhost:9200"}
+
+  curl -ks "http://$server/" | jq -r '.cluster_name'
+}
+
+function get-couchbasepool() {
+  server=${1:-"localhost:8091"}
+
+  curl -ks "http://$server/pools" | jq -r '.pools[0].name'
+}
+
+
 ## Return PID for port
 function portpid() {
   PID=`lsof -t -i :$1`
