@@ -14,6 +14,11 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 sudo ln -s /usr/libexec/locate.updatedb /usr/local/bin/updatedb
 
 
+# Enable atrun
+#echo "<command>" | at HH:MM
+#at -f /path/to/file HH:MM
+sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.atrun.plist
+
 # Always show scrollbars
 # Possible values: `WhenScrolling`, `Automatic` and `Always`
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
