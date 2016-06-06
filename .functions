@@ -389,6 +389,12 @@ function whois() {
   /usr/bin/whois -h whois.internic.net $domain | sed '/NOTICE:/q'
 }
 
+
+# resolve IP of hosts
+function resolveip() {
+  ping -c 1 $1 | regex1 "PING.*\((.*)\):"
+}
+
 #get my remote ip
 # could use: ifconfig.me/ip
 function httpip() {

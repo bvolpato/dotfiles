@@ -7,6 +7,7 @@ source ~/githubworkspace/dotfiles/.spread
 export MDM_REPO=/Users/brunovolpato/githubworkspace/mdm
 export MDM_QA_REPO=/Users/brunovolpato/githubworkspace/mdmqa
 export TOTVSLABS_FRAMEWORK_REPO=/Users/brunovolpato/githubworkspace/totvslabs-framework
+export IDM_REPO=/Users/brunovolpato/githubworkspace/identity/idm
 source ~/shared/.spread
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
