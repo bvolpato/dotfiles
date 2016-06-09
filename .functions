@@ -1,6 +1,14 @@
 #!/bin/bash
 
 
+
+## Fix prompt and title function
+function fixprompt() {
+  #tab title with the current folder name
+  export PROMPT_COMMAND='echo -ne "\033]0; ${PWD##*/}\007"'
+  export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} history -a"
+}
+
 ## Progress
 function echo_progress() {
   echo -e "`mytimestamp` - ${*}"
@@ -767,7 +775,25 @@ function logcolorize() {
 
 }
 
+## clean CURL request
+function cleancurlcb() {
+  pbpaste | cleancurl | pbcopy
+}
 
+
+## clean CURL request
+function cleancurl() {
+
+  #curl 'https://totvslabs.fluigdata.com:8443/api/v1/resultpanel/valuedist?pageSize=20&sortBy=value&sortOrder=DESC' -H 'Pragma: no-cache' -H 'Origin: http://totvslabs.fluigdata.com:3002' -H 'Accept-Encoding: gzip, deflate, br' -H 'Accept-Language: en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4' -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36' -H 'Content-Type: application/json;charset=UTF-8' -H 'Accept: application/json, text/plain, */*' -H 'Cache-Control: no-cache' -H 'Authorization: 454d6e002cf911e69ff182c16efcba4d' -H 'Connection: keep-alive' -H 'Referer: http://totvslabs.fluigdata.com:3002/' -H 'DNT: 1' --data-binary '[{"index":"STAGING","type":"d05a7b0ec55547e5feb0d5bcdff6cc34_customer","fields":["name","state"]}]' --compressed
+  perl -pe 's/-H '\''Pragma: .*?'\''//g' | \
+  perl -pe 's/-H '\''Origin: .*?'\''//g' | \
+  perl -pe 's/-H '\''User-Agent: .*?'\''//g' | \
+  perl -pe 's/-H '\''Accept-Encoding: .*?'\''//g' | \
+  perl -pe 's/-H '\''Accept-Language: .*?'\''//g' | \
+  perl -pe 's/-H '\''Referer: .*?'\''//g' | \
+  perl -pe 's/-H '\''Cache-Control: .*?'\''//g' | \
+  perl -pe 's/-H '\''Connection: .*?'\''//g'
+}
 
 
 
