@@ -672,6 +672,11 @@ function nocolor() {
 
 ##kill processes with name
 function grepkill() {
+  if [ $# -ne 2 ]; then
+      echo_failure "usage: grepkill -SIG process" >&2
+      return;
+  fi
+
     ps aux | grep -ie "$2" | grep -v "grep" | awk '{print $2}' | xargs kill $1
 }
 

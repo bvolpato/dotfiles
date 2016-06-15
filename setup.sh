@@ -5,6 +5,9 @@
 sudo -v
 
 
+export DOTFILES=`pwd`
+
+
 if [ -z "`cat ~/.bashrc | grep '.bash_profile'`" ]; then
   echo "source ~/.bash_profile;" >> ~/.bashrc;
 fi
@@ -16,6 +19,8 @@ fi
 ./symlinks.sh
 
 
+
+./daemons.sh
 
 
 ## iterm integration
