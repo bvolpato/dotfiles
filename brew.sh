@@ -27,8 +27,15 @@ elif [ "$(uname -s)" == "Linux" ]; then
     sudo ln -s /usr/bin/nodejs /usr/bin/node
   fi
 
+
   # install brew
   if ! hash brew 2> /dev/null; then
+
+    if ! hash ruby 2> /dev/null; then
+      echo_failure "Ruby is not available. Can not install Brew."
+      return
+    fi
+
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/linuxbrew/go/install)"
   fi
 
@@ -279,41 +286,41 @@ sudo chown root $mtrlocation/sbin/mtr
 
 if [ "$(uname -s)" == "Darwin" ]; then
 
-# archey - system information
-brew install archey
+  # archey - system information
+  brew install archey
 
 
-#window resizing
-brew cask install spectacle
-brew cask install vlc
+  #window resizing
+  brew cask install spectacle
+  brew cask install vlc
 
-# Install developer friendly quick look plugins; see https://github.com/sindresorhus/quick-look-plugins
-brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
-
-
-# File Archiver Management
-brew cask install keka
-
-# gif screenshot
-brew cask install licecap
-
-# Core casks
-brew cask install --appdir="/Applications" alfred
-brew cask install --appdir="/Applications" iterm2
-brew cask install --appdir="/Applications" java
-brew cask install --appdir="/Applications" xquartz
-brew cask install --appdir="/Applications" atom
-brew cask install --appdir="/Applications" virtualbox
-brew cask install --appdir="/Applications" vagrant
-brew cask install --appdir="/Applications" macdown
-brew cask install --appdir="/Applications" mactex
+  # Install developer friendly quick look plugins; see https://github.com/sindresorhus/quick-look-plugins
+  brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
 
 
-#prevent mac from sleeping
-brew install caffeine
+  # File Archiver Management
+  brew cask install keka
+
+  # gif screenshot
+  brew cask install licecap
+
+  # Core casks
+  brew cask install --appdir="/Applications" alfred
+  brew cask install --appdir="/Applications" iterm2
+  brew cask install --appdir="/Applications" java
+  brew cask install --appdir="/Applications" xquartz
+  brew cask install --appdir="/Applications" atom
+  brew cask install --appdir="/Applications" virtualbox
+  brew cask install --appdir="/Applications" vagrant
+  brew cask install --appdir="/Applications" macdown
+  brew cask install --appdir="/Applications" mactex
 
 
-brew install terminal-notifier
+  #prevent mac from sleeping
+  brew install caffeine
+
+
+  brew install terminal-notifier
 
 
 
