@@ -63,10 +63,12 @@ sudo gem install lolcat
 # tldr (short man)
 sudo npm install -g tldr
 
+# iterm tab color
+sudo npm install -g iterm2-tab-set
+
 # front-end deps
 sudo npm install -g gulp
 sudo npm install -g bower
-
 
 sudo easy_install Pygments
 sudo easy_install pip
