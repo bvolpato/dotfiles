@@ -7,10 +7,13 @@ DOTFILES=`pwd`
 
 
 launchctl unload -w ~/Library/LaunchAgents/org.brunocvcunha.personal.audiohijack.plist || true
-sudo launchctl unload -w /Library/LaunchAgents/org.brunocvcunha.personal.updatedb.plist || true
 
-cp -u $DOTFILES/launchctl/org.brunocvcunha.personal.audiohijack.plist ~/Library/LaunchAgents/
-cp -u $DOTFILES/launchctl/org.brunocvcunha.personal.updatedb.plist /Library/LaunchAgents/
+if [ -f /Library/LaunchAgents/org.brunocvcunha.personal.updatedb.plist ]; then
+  sudo launchctl unload -w /Library/LaunchAgents/org.brunocvcunha.personal.updatedb.plist || true
+fi
+
+cp $DOTFILES/launchctl/org.brunocvcunha.personal.audiohijack.plist ~/Library/LaunchAgents/
+sudo cp $DOTFILES/launchctl/org.brunocvcunha.personal.updatedb.plist /Library/LaunchAgents/
 
 launchctl load -w ~/Library/LaunchAgents/org.brunocvcunha.personal.audiohijack.plist
 

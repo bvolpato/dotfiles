@@ -6,7 +6,7 @@
     <string>org.brunocvcunha.personal.updatedb.plist</string>
     <key>ProgramArguments</key>
     <array>
-        <string>updatedb</string>
+      <string>/usr/local/bin/updatedb</string>
     </array>
     <key>StartInterval</key>
     <integer>3600</integer>
