@@ -301,6 +301,7 @@ if [ -z "`defaults read com.apple.LaunchServices/com.apple.launchservices.secure
   defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.plain-text;LSHandlerRoleAll=com.github.atom;}'
   defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.text;LSHandlerRoleAll=com.github.atom;}'
   defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.xml;LSHandlerRoleAll=com.github.atom;}'
+  defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.php;LSHandlerRoleAll=com.github.atom;}'
   defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.content;LSHandlerRoleAll=com.github.atom;}'
   defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.data;LSHandlerRoleAll=com.github.atom;}'
   defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.source-code;LSHandlerRoleAll=com.github.atom;}'

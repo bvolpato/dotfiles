@@ -223,3 +223,4 @@ alias tabcolors='tabset --colors'
 #google
 alias google='googler'
 alias define='googler -n 2 define'
+alias gbuild='gulp build'
