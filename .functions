@@ -615,9 +615,9 @@ function jenkinsbuildandwait() {
 
 
   if [ $# -eq 2 ]; then
-    curl -v -X POST "$1/build?delay=0sec" -H 'Content-Type: application/x-www-form-urlencoded' --data "$2"
+    curl -v -X POST "$1/build?delay=5sec" -H 'Content-Type: application/x-www-form-urlencoded' --data "$2"
   else
-    curl -v -X POST "$1/buildWithParameters"
+    curl -v -X POST "$1/buildWithParameters?delay=5sec"
   fi
 
   jenkinswaitforbuild "$1/lastBuild"
@@ -945,6 +945,10 @@ function itermtabremote() {
 }
 
 
+function top10memory() {
+  ps aux --sort=-%mem | awk 'NR<=10{print $0}'
+}
+
 function new-alias() {
   local last_command=$(echo `history |tail -n2 |head -n1` | sed 's/[0-9]* //')
   echo alias $1="'""$last_command""'" >> ~/githubworkspace/dotfiles/.aliases
@@ -998,3 +1002,8 @@ function mybranch {
 function __git_branch {
   __git_ps1 "[%s]"
 }
+
+
+
+## export some functions to use in .sh
+export -f jsontag
