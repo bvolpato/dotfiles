@@ -46,14 +46,6 @@ source "$HOME/.sdkman/bin/sdkman-init.sh"
 # cheatly (cheat improvement)
 gem install cheatly
 
-# glances (system monitor)
-sudo pip install glances
-
-
-#howdoi - solutions/snippets on command line
-sudo pip install howdoi
-
-#jekyll
 sudo gem install jekyll
 
 # lolcommits - https://github.com/mroth/lolcommits
@@ -72,6 +64,17 @@ sudo npm install -g bower
 
 sudo easy_install Pygments
 sudo easy_install pip
+
+# glances (system monitor)
+sudo pip install glances
+
+# python + selenium
+sudo pip install pyvirtualdisplay selenium
+
+#howdoi - solutions/snippets on command line
+sudo pip install howdoi
+
+#jekyll
 
 cp ./fonts/Inconsolata.otf ~/Library/Fonts
 
