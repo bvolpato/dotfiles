@@ -908,6 +908,11 @@ function gitpullandstatus() {
 }
 
 
+## get docker ip
+function docker-ip() {
+  docker inspect --format '{{ .NetworkSettings.IPAddress }}' "$@"
+}
+
 
 function chromecookies() {
   # The path for MAC!
