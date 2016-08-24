@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# ~/.osx — https://mths.be/osx
+# ~/.osx — based on https://mths.be/osx
 
 # Ask for the administrator password upfront
 sudo -v
