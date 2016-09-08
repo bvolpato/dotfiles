@@ -164,8 +164,8 @@ brew install aldo
 #ansiweather - ansiweather -l {location}
 brew install ansiweather
 
-#conversor
-brew install pandoc
+#conversor / latex
+#brew install pandoc
 
 #history
 brew install hh
@@ -312,8 +312,8 @@ if [ "$(uname -s)" == "Darwin" ]; then
   brew cask install --appdir="/Applications" atom
   brew cask install --appdir="/Applications" virtualbox
   brew cask install --appdir="/Applications" vagrant
-  brew cask install --appdir="/Applications" macdown
-  brew cask install --appdir="/Applications" mactex
+  #brew cask install --appdir="/Applications" macdown
+  #brew cask install --appdir="/Applications" mactex
 
 
   #prevent mac from sleeping

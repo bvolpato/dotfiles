@@ -91,6 +91,13 @@ function randomLine() {
      echo `$randomFile | tail -1`
 }
 
+# get a random file of a dir
+function randomFile() {
+  files=($1/*)
+  echo ${files[RANDOM % ${#files[@]}]}
+}
+
+
 # Create a new directory and enter it
 function mkd() {
   mkdir -p "$@" && cd "$_";
@@ -855,7 +862,13 @@ function __git_dirty {
   [ $? == 1 ] && echo "!"
 }
 
-
+#leftpad
+function leftpad() {
+  num=$1
+  length=$2
+  
+  printf %0${length}d $num
+}
 # best chess move by FEN
 function chessbestmove() {
   curl -s -XPUT 'http://www.chess-hub.com/moves/calculate' -H 'Content-Type: application/x-www-form-urlencoded' --data "fen%5Bfull_string%5D=$*"  | grep "The best move is" | cut -d'>' -f 5 | cut -d'<' -f 1
@@ -989,6 +1002,41 @@ function get-couchbasepool() {
   curl -ks "http://$server/pools" | jq -r '.pools[0].name'
 }
 
+
+function mod11() {
+  
+  base=$1
+  set - $(echo "$base" | sed 's/./& /g')
+  
+  summing=0
+  for i in 5 4 3 2 9 8 7 6 5 4 3 2
+  do
+    n="$1"
+    summing=$((summing + (i * n)))
+    shift
+  done
+
+  digit1=$((11 - (summing % 11)))
+  test $digit1 -ge 10 && digit1=0
+  
+  
+  set - $(echo "$base" | sed 's/./& /g')
+  
+	summing=0
+	for i in 6 5 4 3 2 9 8 7 6 5 4 3 2
+	do
+		n="$1"
+		summing=$((summing + (i * n)))
+		shift
+	done
+	summing=$((summing + digit1 * 2))
+
+	digit2=$((11 - (summing % 11)))
+	test $digit2 -ge 10 && digit2=0
+  
+  
+  echo $digit1$digit2
+}
 
 ## Return PID for port
 function portpid() {
