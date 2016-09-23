@@ -696,7 +696,7 @@ function sortbytimestamp() {
   do
     echo "Touch $fi..."
     touch $fi
-    sleep 0.2
+    sleep 0.5
   done
 }
 
