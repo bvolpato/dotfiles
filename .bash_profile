@@ -12,12 +12,13 @@ source ~/shared/.spread
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
+export CUDA_HOME=/usr/local/cuda
 ##
 # Your previous /Users/brunovolpato/.bash_profile file was backed up as /Users/brunovolpato/.bash_profile.macports-saved_2016-04-27_at_22:06:15
 ##
 
 # MacPorts Installer addition on 2016-04-27_at_22:06:15: adding an appropriate PATH variable for use with MacPorts.
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+export PATH="$DYLD_LIBRARY_PATH:/opt/local/bin:/opt/local/sbin:$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
 
 

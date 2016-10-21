@@ -16,6 +16,7 @@
   wk = !git me --since='+7 days'
   standup = !git me --since='+1 days'
   sprint = !git me --since='+15 days'
+  demo = !git me --since='+7 days'
   month = !git me --since='+1 Month'
   alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\ => \\2/' | sort
   unmerge = reset --hard ORIG_HEAD
