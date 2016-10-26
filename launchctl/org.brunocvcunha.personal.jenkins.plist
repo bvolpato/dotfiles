@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Disabled</key>
+	<false/>
+	<key>Label</key>
+	<string>org.brunocvcunha.personal.jenkins.plist</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/Users/brunovolpato/githubworkspace/dotfiles/bin/jenkins-restore-connections.sh</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>StandardErrorPath</key>
+	<string>/tmp/org.brunocvcunha.personal.jenkins.plist.stderr</string>
+	<key>StandardOutPath</key>
+	<string>/tmp/org.brunocvcunha.personal.jenkins.plist.stdout</string>
+	<key>StartInterval</key>
+	<integer>300</integer>
+	<key>WorkingDirectory</key>
+	<string>/tmp</string>
+</dict>
+</plist>
