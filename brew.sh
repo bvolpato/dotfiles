@@ -227,6 +227,8 @@ brew install dos2unix
 # mac spoofing - free wifi forever on airports :) - sudo spoof-mac randomize en0
 brew install spoof-mac
 
+# http logging - sudo httpry 
+brew install httpry
 
 #translate - $ trans "Oi, Mundo", $ trans -brief pt:en "Oi Mundo"
 brew install translate-shell

@@ -921,6 +921,21 @@ function gitpullandstatus() {
 }
 
 
+## edit journal
+function journal() {
+  (
+    cd ~/githubworkspace/bruno-notes
+    git pull
+    
+    vi README.md
+    echo "Exit code: $?"
+    git add README.md
+    git commit -m "journal updates"
+    git push
+  )
+}
+
+
 ## get docker ip
 function docker-ip() {
   docker inspect --format '{{ .NetworkSettings.IPAddress }}' "$@"
@@ -1060,3 +1075,5 @@ function __git_branch {
 
 ## export some functions to use in .sh
 export -f jsontag
+
+
