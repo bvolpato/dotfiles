@@ -750,8 +750,6 @@ function regex1 {
   gawk 'match($0,/'"$1"'/, ary) { print ary['${2:-'1'}'] }';
 }
 
-
-
 # Colorize
 function logcolorize() {
 
@@ -1004,6 +1002,51 @@ function iterm2_print_user_vars() {
 }
 
 
+function spotify-current-id() {
+  osascript -e 'tell application "Spotify"
+    return id of current track as string
+  end tell'
+
+}
+
+function spotify-current-song() {
+  osascript -e 'tell application "Spotify"
+    set currentArtist to artist of current track as string
+    set currentTrack to name of current track as string
+
+    return currentArtist & " - " & currentTrack
+  end tell'
+
+}
+
+function spotify-lyrics() {
+  
+  currentSong=`spotify-current-song`
+  lastSong=`cat /tmp/.spotify-song 2>/dev/null`
+  
+  if [[ "$currentSong" == "$lastSong" ]]; then
+    return 1;
+  fi
+  
+  searchString=${currentSong// /+}
+  echo "Song: $searchString"
+  searchContent=$(curl -ks "http://genius.com/search?q=$searchString")
+  #echo $searchContent
+  url=$(echo $searchContent | pup '.search_result:first-of-type a attr{href}')
+  
+  tab=$(chrome-cli list links | grep "genius" | regex1 '\[(.*)\]' | head -n 1)
+  tab=${tab##*:}
+  
+  echo "Tab: $tab"
+  if [[ "$tab" ]]; then
+    chrome-cli open "$url" -t "$tab"
+  else
+    chrome-cli open "$url"
+  fi
+  
+  echo $currentSong > /tmp/.spotify-song
+  return 0;
+}
 
 function get-elasticsearchcluster() {
   server=${1:-"localhost:9200"}
