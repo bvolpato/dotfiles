@@ -1033,15 +1033,18 @@ function spotify-lyrics() {
   searchContent=$(curl -ks "http://genius.com/search?q=$searchString")
   #echo $searchContent
   url=$(echo $searchContent | pup '.search_result:first-of-type a attr{href}')
+  echo "URL: $url"
   
-  tab=$(chrome-cli list links | grep "genius" | regex1 '\[(.*)\]' | head -n 1)
-  tab=${tab##*:}
-  
-  echo "Tab: $tab"
-  if [[ "$tab" ]]; then
-    chrome-cli open "$url" -t "$tab"
-  else
-    chrome-cli open "$url"
+  if [[ "$url" ]]; then
+    tab=$(chrome-cli list links | grep "genius" | regex1 '\[(.*)\]' | head -n 1)
+    tab=${tab##*:}
+    
+    echo "Tab: $tab"
+    if [[ "$tab" ]]; then
+      chrome-cli open "$url" -t "$tab"
+    else
+      chrome-cli open "$url"
+    fi
   fi
   
   echo $currentSong > /tmp/.spotify-song
