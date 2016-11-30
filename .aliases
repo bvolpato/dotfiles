@@ -207,6 +207,9 @@ alias mvn='mvn -Djava.awt.headless=true'
 alias mvnc='mvn clean install -DskipTests'
 alias mvncfast='mvn -T4 clean install -DskipTests'
 
+alias mvnarch='mvn archetype:generate'
+alias mvnquick='mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart'
+
 
 # Java Decompiler
 alias jad="cfr-decompiler"
@@ -215,6 +218,8 @@ alias jad="cfr-decompiler"
 alias cdf='cdfinder'
 
 
+# Youtube
+alias youtube-download-mp3="youtube-dl --extract-audio --audio-format mp3"
 
 # iterm tab color
 alias tabcolorpick='tabset --pick'

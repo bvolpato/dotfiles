@@ -257,6 +257,10 @@ brew install carthage
 brew install javarepl
 
 
+# Gif Sicle
+brew install gifsicle
+
+
 # Diff-so-fancy (diff a b | diff-so-fancy)
 brew install diff-so-fancy
 git config --global pager.diff "diff-so-fancy | less --tabs=4 -RFX" && \
