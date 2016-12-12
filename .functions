@@ -922,7 +922,7 @@ function gitpullandstatus() {
 ## edit journal
 function journal() {
   (
-    cd ~/githubworkspace/bruno-notes
+    cd ~/githubworkspace/bruno-board
     git pull
     
     vi README.md

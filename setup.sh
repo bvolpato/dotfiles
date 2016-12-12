@@ -62,6 +62,10 @@ sudo npm install -g iterm2-tab-set
 sudo npm install -g gulp
 sudo npm install -g bower
 
+
+# speed-test
+sudo npm install -g speed-test
+
 sudo easy_install Pygments
 sudo easy_install pip
 
