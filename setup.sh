@@ -78,6 +78,11 @@ sudo pip install pyvirtualdisplay selenium
 #howdoi - solutions/snippets on command line
 sudo pip install howdoi
 
+
+# sshuttle - tunnel through SSH
+sudo pip install sshuttle
+
+
 #jekyll
 
 cp ./fonts/Inconsolata.otf ~/Library/Fonts
