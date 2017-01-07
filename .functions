@@ -1123,12 +1123,43 @@ function __git_branch {
 export -f jsontag
 
 
+## analyse gc logs
+function gceasy() {
+  
+  if [ $# -ne 1 ]; then
+      echo_failure "usage: gceasy [logfile] " >&2
+      return;
+  fi
+
+  serviceResponse=$(curl -s -X POST "http://api.gceasy.io/analyzeGC?apiKey=$FASTTHREAD_TOKEN" --header "Content-Type: application/json" --data-binary @"$1")
+  analysisUrl=$(echo $serviceResponse | jq -r '.graphURL')
+  open $analysisUrl
+}
+
+## analyse thread dumps for pid
+function fastthread() {
+  
+  if [ $# -ne 1 ]; then
+      echo_failure "usage: fastthread [pid] " >&2
+      return;
+  fi
+
+  jstack -l $1 > /tmp/threaddump.txt
+  
+  serviceResponse=$(curl -s -X POST "http://api.fastthread.io/fastthread-api?apiKey=$FASTTHREAD_TOKEN" --header "Content-Type: application/json" --data-binary @"/tmp/threaddump.txt")
+  
+  analysisUrl=$(echo $serviceResponse | jq -r '.graphURL')
+  open $analysisUrl
+  
+}
 
 
 TNL_SERVER=tnl
 
 # tunnel all traffic including DNS
-alias tnl="sshuttle --dns -vr $TNL_SERVER 0/0"
+function tnl() {
+  sshuttle --dns -vr "${1-$TNL_SERVER}" 0/0
+}
 
 #https://github.com/teohm/dotfiles/blob/master/public/.functions.d/sshuttle.bash
 # returns a list of IP addresses from given domain(s).

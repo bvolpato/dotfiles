@@ -13,6 +13,9 @@ source ~/shared/.spread
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 export CUDA_HOME=/usr/local/cuda
+
+export FASTTHREAD_TOKEN=$(cat ~/Dropbox/Bruno/fastthread_token.txt)
+
 ##
 # Your previous /Users/brunovolpato/.bash_profile file was backed up as /Users/brunovolpato/.bash_profile.macports-saved_2016-04-27_at_22:06:15
 ##
