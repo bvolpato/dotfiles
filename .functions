@@ -1099,6 +1099,37 @@ function mod11() {
   echo $digit1$digit2
 }
 
+## git escalate
+function gitescalatebranches() {
+  echo "Escalating from $1"
+  
+  firstBranch=$(mybranch)
+  currentBranch=$1
+  
+  for branch in ${@:2}; do
+    echo "Merge origin/$currentBranch into $branch"
+    git checkout $branch
+    git merge "origin/$currentBranch" --commit --no-edit
+    git push
+    
+    currentBranch=$branch
+  done
+  
+  
+  git checkout $firstBranch
+  
+}
+
+## GIF to Mp4
+function giftomp4() {
+    ffmpeg -i "$1" -movflags faststart -pix_fmt yuv420p -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" $2
+    
+    ##music
+    ffmpeg -i "$2" -i $(randomFile ~/Dropbox/Royalty_Free_Music/Funny) -map 0:0 -map 1:0 -c:v copy -c:a aac -b:a 256k -shortest "ready_$2"
+    rm "$2"
+    mv "ready_$2" $2
+
+}
 ## Return PID for port
 function portpid() {
   PID=`lsof -t -i :$1`
@@ -1153,6 +1184,10 @@ function fastthread() {
   
 }
 
+## awk sum content
+function awksum() {
+  awk '{s+=$1} END {print s}'
+}
 
 ## new java project
 function newjavaproject() {

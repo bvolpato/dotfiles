@@ -231,7 +231,6 @@ alias google='googler'
 alias define='googler -n 2 define'
 alias gbuild='gulp build'
 
-
 if hash thefuck 2> /dev/null; then
     eval $(thefuck --alias)
 fi
