@@ -93,7 +93,7 @@ function randomLine() {
 
 # get a random file of a dir
 function randomFile() {
-  files=($1/*)
+  files=($1/*.*)
   echo ${files[RANDOM % ${#files[@]}]}
 }
 
@@ -1109,6 +1109,7 @@ function gitescalatebranches() {
   for branch in ${@:2}; do
     echo "Merge origin/$currentBranch into $branch"
     git checkout $branch
+    git pull
     git merge "origin/$currentBranch" --commit --no-edit
     git push
     
@@ -1164,6 +1165,8 @@ function gceasy() {
 
   serviceResponse=$(curl -s -X POST "http://api.gceasy.io/analyzeGC?apiKey=$FASTTHREAD_TOKEN" --header "Content-Type: application/json" --data-binary @"$1")
   analysisUrl=$(echo $serviceResponse | jq -r '.graphURL')
+  
+  echo $analysisUrl
   open $analysisUrl
 }
 
@@ -1180,6 +1183,7 @@ function fastthread() {
   serviceResponse=$(curl -s -X POST "http://api.fastthread.io/fastthread-api?apiKey=$FASTTHREAD_TOKEN" --header "Content-Type: application/json" --data-binary @"/tmp/threaddump.txt")
   
   analysisUrl=$(echo $serviceResponse | jq -r '.graphURL')
+  echo $analysisUrl
   open $analysisUrl
   
 }
