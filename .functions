@@ -974,7 +974,25 @@ function itermtab() {
 }
 
 function itermtabremote() {
-  osascript -e 'tell application "iTerm" to activate' -e 'tell application "System Events" to tell process "iTerm" to keystroke "r" using {command down, control down}' -e 'tell application "System Events" to tell process "iTerm" to keystroke "'"$*"'"' -e 'tell application "System Events" to tell process "iTerm" to key code 52'
+  osascript -e 'tell application "iTerm" to activate' \
+    -e 'tell application "System Events" to tell process "iTerm" to keystroke "r" using {command down, control down}' \
+    -e 'tell application "System Events" to tell process "iTerm" to keystroke "'"$*"'"' \
+    -e 'tell application "System Events" to tell process "iTerm" to key code 52'
+  sleep 0.5
+}
+
+function itermsplitremote() {
+  osascript -e 'tell application "iTerm" to activate' \
+    -e 'tell application "System Events" to tell process "iTerm" to keystroke "d" using {command down}' \
+    -e 'tell application "System Events" to tell process "iTerm" to keystroke "'"$*"'"' \
+    -e 'tell application "System Events" to tell process "iTerm" to key code 52'
+  sleep 0.5
+}
+
+function itermtabcmd() {
+  osascript -e 'tell application "iTerm" to activate' \
+    -e 'tell application "System Events" to tell process "iTerm" to keystroke "'"$*"'"' \
+    -e 'tell application "System Events" to tell process "iTerm" to key code 52'
   sleep 0.5
 }
 
