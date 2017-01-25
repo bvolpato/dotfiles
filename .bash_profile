@@ -35,3 +35,4 @@ export SDKMAN_DIR="${HOME}/.sdkman"
 
 
 eval "$(thefuck --alias)"
+eval $(/usr/libexec/path_helper -s)

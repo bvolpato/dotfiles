@@ -26,7 +26,7 @@ if hash brew 2> /dev/null; then
   source "$DIR/.complete"
   source "$DIR/.functions"
   source "$DIR/.totvsfunctions"
-  source "$DIR/.priv8functions"
+  source "$DIR/../priv8dotfiles/.priv8functions"
 
   # echo '~~ got r00t? ;-)'
 
