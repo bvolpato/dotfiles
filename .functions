@@ -1278,6 +1278,43 @@ function newtextproject() {
 }
 
 
+## new spring boot project
+function newspringbootproject() {
+
+  if [ $# -ne 1 ]; then
+    echo_failure "usage: newjavaproject name " >&2
+    return;
+  fi
+
+  name=${1}
+
+  mvn archetype:generate -DarchetypeGroupId=org.brunocvcunha  \
+  -DarchetypeArtifactId=brunocvcunha-oss-springboot-archetype  \
+  -DarchetypeVersion=1.0-SNAPSHOT  \
+  -DgroupId="org.brunocvcunha.$name"  \
+  -DartifactId="$name" \
+  -Dversion=1.0-SNAPSHOT \
+  -DuseLombok=true \
+  -DuseJsoup=false \
+  -DuseGhostMe=true \
+  -DuseInutils=true \
+  -DuseSelenium=false \
+  -DuseMysql=true 
+  
+  # cd $name
+  # git init
+  # hub create -p -d $description
+  # 
+  # git add -A
+  # git commit -m "initial commit"
+  # 
+  # git push origin master
+  # mvn eclipse:eclipse -DdownloadSources=true
+  # 
+  # git browse
+}
+
+
 TNL_SERVER=tnl
 
 # tunnel all traffic including DNS

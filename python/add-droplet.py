@@ -5,6 +5,10 @@ import os
 import sys
 import time
 
+if len(sys.argv) < 2:
+    print "usage: add-droplet.py [name] [region=sfo2] [image=ubuntu-16-04-x64] [size=512mb]"
+    sys.exit(1)
+
 # user_ssh_key = open('/Users/brunovolpato/.ssh/id_rsa.pub').read()
 # key = digitalocean.SSHKey(token=os.environ["DIGITAL_OCEAN_KEY"],
 #              name='brunokey',
