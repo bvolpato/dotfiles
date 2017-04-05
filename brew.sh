@@ -90,6 +90,8 @@ brew install homebrew/completions/brew-cask-completion
 
 #install better versions of tools
 brew install vim --override-system-vi
+brew install macvim --env-std --override-system-vim
+
 brew install homebrew/dupes/grep
 brew install homebrew/dupes/screen
 
@@ -227,7 +229,7 @@ brew install dos2unix
 # mac spoofing - free wifi forever on airports :) - sudo spoof-mac randomize en0
 brew install spoof-mac
 
-# http logging - sudo httpry 
+# http logging - sudo httpry
 brew install httpry
 
 #translate - $ trans "Oi, Mundo", $ trans -brief pt:en "Oi Mundo"
