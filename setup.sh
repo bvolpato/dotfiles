@@ -83,6 +83,10 @@ sudo pip install howdoi
 sudo pip install sshuttle
 
 
+# powerline status
+sudo pip install powerline-status
+
+
 #jekyll
 
 cp ./fonts/Inconsolata.otf ~/Library/Fonts

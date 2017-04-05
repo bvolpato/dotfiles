@@ -1,3 +1,4 @@
+
 " Use the Solarized Dark theme
 set background=dark
 colorscheme solarized
@@ -99,3 +100,18 @@ if has("autocmd")
 	" Treat .md files as Markdown
 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 endif
+
+set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
+
+" Font
+if has("gui_running")
+   let s:uname = system("uname")
+   if s:uname == "Darwin\n"
+      set guifont=Inconsolata\ for\ Powerline
+   endif
+endif
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+set laststatus=2
+set t_Co=256

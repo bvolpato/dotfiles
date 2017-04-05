@@ -1299,18 +1299,18 @@ function newspringbootproject() {
   -DuseGhostMe=true \
   -DuseInutils=true \
   -DuseSelenium=false \
-  -DuseMysql=true 
-  
+  -DuseMysql=true
+
   # cd $name
   # git init
   # hub create -p -d $description
-  # 
+  #
   # git add -A
   # git commit -m "initial commit"
-  # 
+  #
   # git push origin master
   # mvn eclipse:eclipse -DdownloadSources=true
-  # 
+  #
   # git browse
 }
 
@@ -1373,3 +1373,42 @@ function lsgit() {
   done
 
 }
+
+
+
+## transfer files
+function transfer() {
+    # write to output to tmpfile because of progress bar
+    tmpfile=$( mktemp -t transferXXX )
+    curl --progress-bar --upload-file $1 https://transfer.sh/$(basename $1) >> $tmpfile;
+    cat $tmpfile
+    cat $tmpfile | pbpaste;
+    rm -f $tmpfile;
+}
+
+
+
+## make Eclipse fly :)
+function eclipsefly() {
+    export DISK_ID=`hdiutil attach -nomount ram://8388608`
+    diskutil erasevolume HFS+ 'ramdisk' $DISK_ID
+
+    cp -RL /Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk /Volumes/ramdisk/jdk
+    set JAVA_HOME=/Volumes/ramdisk/jdk/Contents/Home
+
+    #/bin/cp -rf ~/Desktop/Eclipse-Neon-M7.app /Volumes/ramdisk/
+    #open /Volumes/ramdisk/
+
+}
+
+## land/free Eclipse memory
+function eclipseland() {
+
+    #cp -RL /Volumes/ramdisk/Eclipse.app ~/Desktop/Eclipse-Neon-M7.app
+
+    idParam=${DISK_ID:-"/dev/disk1"}
+    echo "Umounting $idParam"
+    umount -f $idParam
+    hdiutil detach $idParam
+}
+
