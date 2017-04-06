@@ -1,7 +1,7 @@
 
 
 #import a few dotfiles
-source ~/githubworkspace/dotfiles/.spread
+source ~/githubworkspace/dotfiles/spread
 
 # TOTVS
 export MDM_REPO=/Users/brunovolpato/githubworkspace/mdm
@@ -14,6 +14,8 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 
 export ANDROID_HOME=/Users/brunovolpato/Library/Android/sdk
 export CUDA_HOME=/usr/local/cuda
+export DYLD_FALLBACK_LIBRARY_PATH="$CUDA_HOME/lib:/usr/local/lib:/usr/lib:/Developer/NVIDIA/CUDA-7.5/lib"
+export DYLD_LIBRARY_PATH="/usr/local/cuda/lib:/Developer/NVIDIA/CUDA-7.5/lib:$DYLD_LIBRARY_PATH"
 
 export FASTTHREAD_TOKEN=$(cat ~/Dropbox/Bruno/fastthread_token.txt)
 
@@ -25,6 +27,8 @@ export FASTTHREAD_TOKEN=$(cat ~/Dropbox/Bruno/fastthread_token.txt)
 export PATH="$DYLD_LIBRARY_PATH:/opt/local/bin:/opt/local/sbin:$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
 
+# Virtualenv/VirtualenvWrapper
+source /usr/local/bin/virtualenvwrapper.sh
 
 export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
 

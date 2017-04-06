@@ -11,10 +11,10 @@ export PATH=/usr/local/bin:$PATH
 
 export DOTFILES=$DIR
 
-source "$DIR/.exports"
-source "$DIR/.options"
-source "$DIR/.aliases"
-source "$DIR/.cheatsheets"
+source "$DIR/exports"
+source "$DIR/options"
+source "$DIR/aliases"
+source "$DIR/cheatsheets"
 
 
 ## curl swag
@@ -23,8 +23,8 @@ if hash _curlswag.sh 2>/dev/null; then
 fi
 
 if hash brew 2> /dev/null; then
-  source "$DIR/.complete"
-  source "$DIR/.functions"
+  source "$DIR/complete"
+  source "$DIR/functions"
   source "$DIR/../priv8dotfiles/.keys"
   source "$DIR/../priv8dotfiles/.totvsfunctions"
   source "$DIR/../priv8dotfiles/.priv8functions"
