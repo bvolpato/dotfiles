@@ -48,5 +48,8 @@ if [ -f `which powerline-daemon` ]; then
     POWERLINE_BASH_CONTINUATION=1
     POWERLINE_BASH_SELECT=1
 
-    . /usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+    powerline_path=$(python -c 'import pkgutil; print pkgutil.get_loader("powerline").filename' 2>/dev/null)
+    if [[ "$powerline_path" != "" ]]; then
+        source ${powerline_path}/bindings/bash/powerline.sh
+    fi
 fi
