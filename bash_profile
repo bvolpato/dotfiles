@@ -12,6 +12,7 @@ source ~/shared/.spread
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
+export ECLIPSE_HOME=~/Desktop/Eclipse-Neon-M7.app/Contents/Eclipse
 export ANDROID_HOME=/Users/brunovolpato/Library/Android/sdk
 export CUDA_HOME=/usr/local/cuda
 export DYLD_FALLBACK_LIBRARY_PATH="$CUDA_HOME/lib:/usr/local/lib:/usr/lib:/Developer/NVIDIA/CUDA-7.5/lib"

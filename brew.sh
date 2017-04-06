@@ -92,6 +92,11 @@ brew install homebrew/completions/brew-cask-completion
 brew install vim --override-system-vi
 brew install macvim --env-std --override-system-vim
 
+
+# Plugged
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+
 brew install homebrew/dupes/grep
 brew install homebrew/dupes/screen
 

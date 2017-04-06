@@ -8,6 +8,11 @@ else # OS X `ls`
 fi
 
 
+# reload
+alias br='bash -l'
+
+alias p='. /usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh'
+
 # Prettier date and time
 alias now='date +"%T'
 alias unixdate='date +%s'
