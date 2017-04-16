@@ -11,6 +11,9 @@ fi
 # reload
 alias br='bash -l'
 
+alias noprofile='env -i bash --norc --noprofile'
+
+
 alias p='. /usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh'
 
 # Prettier date and time

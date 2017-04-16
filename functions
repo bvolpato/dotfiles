@@ -1401,6 +1401,11 @@ function eclipsefly() {
 
 }
 
+## open eclipse
+function eclipse() {
+    ~/Desktop/Eclipse-Neon-M7.app/Contents/MacOS/eclipse
+}
+
 ## land/free Eclipse memory
 function eclipseland() {
 
