@@ -8,6 +8,15 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 
+" Java
+" Plug 'artur-shaik/vim-javacomplete2'
+
+" Plug 'starcraftman/vim-eclim'
+
+" Snippets.
+"Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
+
 
 "Theme
 Plug 'tomasr/molokai'
@@ -21,6 +30,41 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " :Yanks, ,p ,P
 Plug 'maxbrunsfeld/vim-yankstack'
+
+" Plug 'bling/vim-airline'
+" Plug 'b4winckler/vim-objc'
+" Plug 'msanders/snipmate.vim'
+" Plug 'mileszs/ack.vim'
+" Plug 'kana/vim-textobj-user'
+" Plug 'nelstrom/vim-textobj-rubyblock'
+" Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-unimpaired'
+" Plug 'tpope/vim-surround'
+" Plug 'Raimondi/delimitMate'
+" Plug 'nelstrom/vim-markdown-folding'
+" Plug 'tpope/vim-repeat'
+" Plug 'nono/vim-handlebars'
+" Plug 'nathanaelkane/vim-indent-guides'
+" Plug 'pangloss/vim-javascript'
+" Plug 'milkypostman/vim-togglelist'
+" Plug 'michalliu/jsruntime.vim'
+" Plug 'michalliu/jsoncodecs.vim'
+" Plug 'michalliu/sourcebeautify.vim'
+" Plug 'jnwhiteh/vim-golang'
+" Plug 'teranex/jk-jumps.vim'
+" Plug 'tpope/vim-dispatch'
+" Plug 'haya14busa/incsearch.vim'
+" Plug 'rodjek/vim-puppet'
+" Plug 'elixir-lang/vim-elixir'
+" Plug 'embear/vim-localvimrc'
+" Plug 'vim-airline/vim-airline-themes'
+" Plug 'godlygeek/tabular'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'Quramy/vim-js-pretty-template'
+" Plug 'keith/swift.vim'
+call plug#end()
+
+
 
 " Use the Solarized Dark theme
 set background=dark
@@ -230,3 +274,10 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+" Java
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
+nmap <F5> <Plug>(JavaComplete-Imports-Add)
+nmap <F6> <Plug>(JavaComplete-Imports-AddMissing)
+nmap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)

@@ -1018,6 +1018,14 @@ function addtoclasspath() {
 
 }
 
+function addjartoclasspath() {
+  xmlstarlet ed --inplace -s "/classpath" -t elem -n "classpathentry" -v "" \
+    -i "//classpathentry[last()]" -t attr -n "kind" -v "var" \
+    -i "//classpathentry[last()]" -t attr -n "path" -v "/$1" ${2:-".classpath"}
+
+}
+
+
 function iterm2_print_user_vars() {
   iterm2_set_user_var gitBranch $(__git_branch)
 }
@@ -1390,7 +1398,7 @@ function transfer() {
 
 ## make Eclipse fly :)
 function eclipsefly() {
-    export DISK_ID=`hdiutil attach -nomount ram://8388608`
+    export DISK_ID=`hdiutil attach -nomount ram://2097152`
     diskutil erasevolume HFS+ 'ramdisk' $DISK_ID
 
     cp -RL /Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk /Volumes/ramdisk/jdk
@@ -1403,7 +1411,7 @@ function eclipsefly() {
 
 ## open eclipse
 function eclipse() {
-    ~/Desktop/Eclipse-Neon-M7.app/Contents/MacOS/eclipse
+    ~/Desktop/Eclipse-Oxygen.app/Contents/MacOS/eclipse
 }
 
 ## land/free Eclipse memory
