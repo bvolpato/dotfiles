@@ -19,6 +19,7 @@ if [ -d ~/.linuxbrew/bin ]; then
 fi
 
 export PATH=~/githubworkspace/dotfiles/bin:$PATH
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
 #tab title with the current folder name
 export PROMPT_COMMAND='echo -ne "\033]0; ${PWD##*/}\007"'

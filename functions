@@ -1450,3 +1450,6 @@ function ix() {
     }
     curl $opts -F f:1='<-' $* ix.io/$id
 }
+
+
+function shuf() { perl -MList::Util=shuffle -e 'print shuffle(<>);' "$@"; }
