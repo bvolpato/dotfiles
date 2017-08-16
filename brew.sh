@@ -102,6 +102,7 @@ brew install homebrew/dupes/screen
 
 
 # tools
+brew install gpg
 brew install node
 brew install git
 brew install wget --with-iri
@@ -129,11 +130,11 @@ brew install binutils
 #cipher detection
 brew install cifer
 #zip cracker
-brew install fcrackzip
+#brew install fcrackzip
 #logon crack
-brew install hydra
+#brew install hydra
 #pwd crack
-brew install john
+#brew install john
 
 
 
@@ -166,10 +167,10 @@ brew install pv
 
 
 #aldo - learn morse code
-brew install aldo
+#brew install aldo
 
 #ansiweather - ansiweather -l {location}
-brew install ansiweather
+#brew install ansiweather
 
 #conversor / latex
 #brew install pandoc
@@ -250,8 +251,8 @@ brew link --overwrite maven-deluxe
 brew install the_silver_searcher
 
 # company ios dependencies
-brew install swiftlint
-brew install carthage
+#brew install swiftlint
+#brew install carthage
 
 
 # crashhub - java/jvm bash // http://www.crashub.org/1.3/reference.html
@@ -318,20 +319,20 @@ if [ "$(uname -s)" == "Darwin" ]; then
   brew cask install licecap
 
   # Core casks
-  brew cask install --appdir="/Applications" alfred
-  brew cask install --appdir="/Applications" iterm2
-  brew cask install --appdir="/Applications" java
-  brew cask install --appdir="/Applications" xquartz
-  brew cask install --appdir="/Applications" atom
-  brew cask install --appdir="/Applications" virtualbox
-  brew cask install --appdir="/Applications" vagrant
-  brew cask install --appdir="/Applications" launchcontrol
+  #brew cask install --appdir="/Applications" alfred
+  #brew cask install --appdir="/Applications" iterm2
+  #brew cask install --appdir="/Applications" java
+  #brew cask install --appdir="/Applications" xquartz
+  #brew cask install --appdir="/Applications" atom
+  #brew cask install --appdir="/Applications" virtualbox
+  #brew cask install --appdir="/Applications" vagrant
+  #brew cask install --appdir="/Applications" launchcontrol
   #brew cask install --appdir="/Applications" macdown
   #brew cask install --appdir="/Applications" mactex
 
 
   #prevent mac from sleeping
-  brew install caffeine
+  #brew install caffeine
 
 
   brew install terminal-notifier

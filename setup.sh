@@ -36,21 +36,21 @@ curl -L https://iterm2.com/misc/install_shell_integration.sh | bash
 
 
 #sdk
-curl -s get.sdkman.io | bash
-source "$HOME/.sdkman/bin/sdkman-init.sh"
+#curl -s get.sdkman.io | bash
+#source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 #sdk install grails
 #sdk install groovy
 
 
 # cheatly (cheat improvement)
-gem install cheatly
+#gem install cheatly
 
-sudo gem install jekyll
+#sudo gem install jekyll
 
 # lolcommits - https://github.com/mroth/lolcommits
-sudo gem install lolcommits
-sudo gem install lolcat
+#sudo gem install lolcommits
+#sudo gem install lolcat
 
 # tldr (short man)
 sudo npm install -g tldr
@@ -73,10 +73,10 @@ sudo easy_install pip
 sudo pip install glances
 
 # python + selenium
-sudo pip install pyvirtualdisplay selenium
+#sudo pip install pyvirtualdisplay selenium
 
 #howdoi - solutions/snippets on command line
-sudo pip install howdoi
+#sudo pip install howdoi
 
 
 # sshuttle - tunnel through SSH
@@ -85,6 +85,7 @@ sudo pip install sshuttle
 
 # powerline status
 sudo pip install powerline-status
+sudo pip install powerline-gitstatus
 
 
 #jekyll
