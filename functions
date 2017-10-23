@@ -413,7 +413,7 @@ function resolveip() {
 #get my remote ip
 # could use: ifconfig.me/ip
 function httpip() {
-  curl -sk http://ipinfo.io/ip
+  curl https://ipinfo.io/ip
 }
 function httphost() {
   curl -sk http://ifconfig.me/host
@@ -1139,7 +1139,7 @@ function gitescalatebranches() {
     echo "Merge origin/$currentBranch into $branch"
     git checkout $branch
     git pull
-    git merge "origin/$currentBranch" --commit --no-edit
+    git merge "origin/$currentBranch" --commit --no-ff --no-edit
     git push
 
     currentBranch=$branch
