@@ -42,6 +42,9 @@ export SDKMAN_DIR="${HOME}/.sdkman"
 eval "$(thefuck --alias)"
 eval $(/usr/libexec/path_helper -s)
 
+GPG_TTY=$(tty)
+export GPG_TTY
+
 
 if [ -f `which powerline-daemon` ]; then
     powerline-daemon -q
