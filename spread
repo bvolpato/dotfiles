@@ -11,6 +11,7 @@ export PATH=/usr/local/bin:$PATH
 
 export DOTFILES=$DIR
 
+#source "$DIR/bash_profile"
 source "$DIR/exports"
 source "$DIR/options"
 source "$DIR/aliases"
@@ -35,6 +36,11 @@ else
 
   echo "Brew not installed. Ignoring a few sources."
 fi
+
+# MASM
+export WINEPREFIX=~/wine-masm
+export WINE_MASM_DIR=~/wine-masm
+
 
 #if hash archey 2> /dev/null; then
   #archey

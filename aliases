@@ -218,7 +218,7 @@ alias mvn='mvn -Djava.awt.headless=true'
 alias mvnc='mvn clean install -DskipTests'
 alias mvncq='mvnc -e -Dorg.slf4j.simpleLogger.defaultLogLevel=warn'
 
-alias mvncfast='mvn -T4 clean install -DskipTests'
+alias mvncfast='mvn -T4 clean install -DskipTests -Dmaven.test.skip=true'
 alias mvncfastq='mvncfast -e -Dorg.slf4j.simpleLogger.defaultLogLevel=warn'
 
 alias mvnarch='mvn archetype:generate'
@@ -251,4 +251,3 @@ alias gbuild='gulp build'
 if hash thefuck 2> /dev/null; then
     eval $(thefuck --alias)
 fi
-

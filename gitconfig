@@ -22,6 +22,7 @@
   unmerge = reset --hard ORIG_HEAD
   export-patch = !git format-patch --stdout $1 > ~/`git bn`.diff
   rank = !git shortlog -s -n
+  wsf = !git commit -mTemp && git stash && git rebase HEAD~ --whitespace=fix && git reset --soft HEAD~ && git stash pop
 
 [color]
   # Use colors in Git commands that are capable of colored output when outputting to the terminal
