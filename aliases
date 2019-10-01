@@ -248,6 +248,9 @@ alias google='googler'
 alias define='googler -n 2 define'
 alias gbuild='gulp build'
 
+alias k='kubectl'
+alias tf='terraform'
+
 if hash thefuck 2> /dev/null; then
     eval $(thefuck --alias)
 fi

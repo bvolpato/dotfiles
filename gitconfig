@@ -76,3 +76,7 @@
 [mergetool "diffmerge"]
 	trustExitCode = true
 	cmd = /usr/local/bin/diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg

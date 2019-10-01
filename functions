@@ -1222,8 +1222,40 @@ function awksum() {
   awk '{s+=$1} END {print s}'
 }
 
-## new java project
+## new java project lite
 function newjavaproject() {
+
+  if [ $# -le 1 ]; then
+    echo_failure "usage: newjavaproject name description " >&2
+    return;
+  fi
+
+  name=${1}
+  description=${2}
+
+  mvn archetype:generate -DarchetypeGroupId=org.brunocvcunha  \
+  -DarchetypeArtifactId=brunocvcunha-oss-java-archetype  \
+  -DarchetypeVersion=1.0-SNAPSHOT  \
+  -DgroupId="org.brunocvcunha.$name"  \
+  -DartifactId="$name" \
+  -Dversion=1.0-SNAPSHOT \
+  -DuseLombok=true \
+  -DuseJsoup=false \
+  -DuseGhostMe=false \
+  -DuseInutils=false \
+  -DuseSelenium=false
+
+  cd $name
+  git init
+  hub create -p -d $description
+
+  mvn eclipse:eclipse -DdownloadSources=true
+
+}
+
+
+## new java project
+function newjavaprojectfull() {
 
   if [ $# -le 1 ]; then
     echo_failure "usage: newjavaproject name description " >&2
@@ -1401,7 +1433,7 @@ function eclipsefly() {
     export DISK_ID=`hdiutil attach -nomount ram://2097152`
     diskutil erasevolume HFS+ 'ramdisk' $DISK_ID
 
-    cp -RL /Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk /Volumes/ramdisk/jdk
+    cp -RL /Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk /Volumes/ramdisk/jdk
     set JAVA_HOME=/Volumes/ramdisk/jdk/Contents/Home
 
     #/bin/cp -rf ~/Desktop/Eclipse-Neon-M7.app /Volumes/ramdisk/
@@ -1411,7 +1443,7 @@ function eclipsefly() {
 
 ## open eclipse
 function eclipse() {
-    ~/Desktop/Eclipse-Oxygen.app/Contents/MacOS/eclipse
+    /Applications/Eclipse-Photon.app/Contents/MacOS/eclipse
 }
 
 ## land/free Eclipse memory
