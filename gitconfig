@@ -52,6 +52,7 @@
 [user]
 	name = Bruno Volpato
 	email = brunocvcunha@gmail.com
+	signingkey = C2443A1E914492ACA5F3111FACDBBDD4324B84C1
 [core]
 	excludesfile = /Users/brunovolpato/.gitignore_global
 [difftool "sourcetree"]

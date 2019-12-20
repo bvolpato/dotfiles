@@ -249,6 +249,8 @@ alias define='googler -n 2 define'
 alias gbuild='gulp build'
 
 alias k='kubectl'
+alias kx='kubectx'
+alias kn='kubens'
 alias tf='terraform'
 
 if hash thefuck 2> /dev/null; then
