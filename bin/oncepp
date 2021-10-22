@@ -1,0 +1,3 @@
+#!/bin/bash
+rm a.out 2> /dev/null||true; g++ $1 && ./a.out && rm a.out
+

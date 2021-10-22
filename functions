@@ -1532,3 +1532,71 @@ function optimizejpeg() {
 export -f optimizejpeg
 
 function shuf() { perl -MList::Util=shuffle -e 'print shuffle(<>);' "$@"; }
+
+
+function halpinho() {
+  killall -15 "FirefoxCP Web Content"
+}
+
+
+function halp() {
+
+  echo "Killing apps"
+  killall -15 "Google Chrome" \
+    "Google Chrome Helper" \
+    "firefox" \
+    "Slack" \
+    "Safari" \
+    "Mail" \
+    "iTunes" \
+    "App Store" \
+    "Microsoft Word" \
+    "System Preferences" \
+    "Activity Monitor" \
+    "Evernote" \
+    "Notes" \
+    "Preview" \
+    "Synergy" \
+    "Numbers" \
+    "keybase" \
+    "evernote" \
+    "Grammarly" \
+    "Electrum" \
+    "Electrum-LTC" \
+    "Electron-Cash" \
+    "Bandwidth+" \
+    "synergy" \
+    "synergy-core" \
+    "Calendar"
+
+  echo "Closing all finder windows"
+  osascript -e 'tell application "Finder" to close every window'
+  osascript -e 'tell application "Finder" to close windows'
+
+
+  echo "Cleaning badges"
+  defaults write com.apple.systempreferences AttentionPrefBundleIDs 0
+
+  echo "Restoring dock"
+  killall -15 Dock
+}
+
+
+
+
+function flow() {
+
+  echo "Enabling do not disturb..."
+  defaults -currentHost write ~/Library/Preferences/ByHost/com.apple.notificationcenterui doNotDisturb -boolean true
+  defaults -currentHost write ~/Library/Preferences/ByHost/com.apple.notificationcenterui doNotDisturbDate -date "`date -u +\"%Y-%m-%d %H:%M:%S +0000\"`"
+  killall NotificationCenter
+
+  halp
+
+}
+
+function flowoff() {
+  defaults -currentHost write ~/Library/Preferences/ByHost/com.apple.notificationcenterui doNotDisturb -boolean false
+  killall NotificationCenter
+
+}

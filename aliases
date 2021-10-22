@@ -150,7 +150,7 @@ alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && 
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
 # URL-encode strings
-alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+alias urlencode='python -c "import sys, urllib as ul; print(ul.quote_plus(sys.argv[1]));"'
 
 # Merge PDF files
 # Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
@@ -207,6 +207,8 @@ alias eshead="open 'http://localhost:9200/_plugin/head'"
 alias wifion="networksetup -setairportpower en0 on"
 alias wifioff="networksetup -setairportpower en0 off"
 
+alias bluetoothon="blueutil --power 1"
+alias bluetoothoff="blueutil --power 0"
 
 # Maven parallel build by default
 alias mvnfast='mvn -T4'
@@ -252,6 +254,8 @@ alias k='kubectl'
 alias kx='kubectx'
 alias kn='kubens'
 alias tf='terraform'
+
+complete -F __start_kubectl k
 
 if hash thefuck 2> /dev/null; then
     eval $(thefuck --alias)
