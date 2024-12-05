@@ -3,8 +3,6 @@
 
 
 
-Document soon :)
-
 Setup:
 
 > ```sh

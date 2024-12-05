@@ -8,16 +8,12 @@ sudo -v
 export DOTFILES=`pwd`
 
 
-if [ -z "`cat ~/.bashrc | grep '.bash_profile'`" ]; then
-  echo "source ~/.bash_profile;" >> ~/.bashrc;
-fi
 
-if [ -z "`cat ~/.bash_profile | grep '/dotfiles'`" ]; then
-  echo "source `pwd`/.spread" >> ~/.bash_profile;
+if [ -z "`cat ~/.zshrc | grep '/dotfiles'`" ]; then
+  echo "source `pwd`/.spread" >> ~/.zshrc;
 fi
 
 ./symlinks.sh
-
 
 
 ./daemons.sh
@@ -32,86 +28,39 @@ curl -L https://iterm2.com/misc/install_shell_integration.sh | bash
 
 
 
-# non-brew packages
+
+#sdkman
+curl -s "https://get.sdkman.io" | bash
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+sdk install java 21-tem
+sdk install gradle
 
 
-#sdk
-#curl -s get.sdkman.io | bash
-#source "$HOME/.sdkman/bin/sdkman-init.sh"
+# nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+source ~/.zshrc
 
-#sdk install grails
-#sdk install groovy
+nvm install 22
 
-
-# cheatly (cheat improvement)
-#gem install cheatly
-
-#sudo gem install jekyll
-
-# lolcommits - https://github.com/mroth/lolcommits
-#sudo gem install lolcommits
-#sudo gem install lolcat
 
 # tldr (short man)
-sudo npm install -g tldr
-
-# iterm tab color
-sudo npm install -g iterm2-tab-set
-
-# front-end deps
-sudo npm install -g gulp
-sudo npm install -g bower
-
+npm install -g tldr
 
 # speed-test
-sudo npm install -g speed-test
-
-sudo easy_install Pygments
-sudo easy_install pip
-
-# glances (system monitor)
-sudo pip install glances
-
-# python + selenium
-#sudo pip install pyvirtualdisplay selenium
-
-#howdoi - solutions/snippets on command line
-#sudo pip install howdoi
+npm install -g speed-test
 
 
-# sshuttle - tunnel through SSH
-sudo pip install sshuttle
-
-
-# powerline status
-sudo pip install powerline-status
-sudo pip install powerline-gitstatus
-
-
-#jekyll
-
-cp ./fonts/Inconsolata.otf ~/Library/Fonts
-
-
-
-
-wget https://raw.githubusercontent.com/gnachman/iTerm2/master/tests/imgcat -O /usr/local/bin/imgcat
-chmod +x /usr/local/bin/imgcat
 
 if [ "$(uname -s)" == "Darwin" ]; then
-  wget https://bahoom.com/hyperswitch/HyperSwitch.zip
-  unzip HyperSwitch.zip -d ~/Applications
 
 
-  #redirect everything that's .buildlocal to local
-  mkdir -pv $(brew --prefix)/etc/ && \
-  echo 'address=/.buildlocal/127.0.0.1' > $(brew --prefix)/etc/dnsmasq.conf && \
-  sudo cp -v $(brew --prefix dnsmasq)/homebrew.mxcl.dnsmasq.plist /Library/LaunchDaemons && \
-  sudo launchctl load -w /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist && \
-  sudo mkdir -v /etc/resolver && \
-  sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/buildlocal'
+# fonts
+cp ./fonts/* ~/Library/Fonts/
 
-  sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder
 
+else
+
+cp ./fonts/* /usr/local/share/fonts/
 
 fi
